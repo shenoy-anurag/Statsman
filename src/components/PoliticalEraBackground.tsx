@@ -30,8 +30,21 @@ export function generateEraGradient({ countryCode, minYear, maxYear, opacity = 0
   
   if (!eras || eras.length === 0 || range <= 0) return defaultGradient;
 
+  // Pre-calculate party streaks globally so shading remains stable during scrolling bounds
+  let runningParty = "";
+  let runningStreak = 0;
+  const processedEras = eras.map((era) => {
+    if (era.party === runningParty) {
+      runningStreak++;
+    } else {
+      runningParty = era.party;
+      runningStreak = 0;
+    }
+    return { ...era, streak: runningStreak };
+  });
+
   // Filter and sort eras strictly within our timeline
-  const activeEras = eras
+  const activeEras = processedEras
     .filter(e => e.end > minYear && e.start < maxYear)
     .sort((a, b) => a.start - b.start);
 
@@ -61,7 +74,10 @@ export function generateEraGradient({ countryCode, minYear, maxYear, opacity = 0
       addBlock(currentYear, eraStart, "transparent", 0);
     }
 
-    addBlock(eraStart, eraEnd, era.color, opacity);
+    // Alternate the opacity to create distinct shades within the same party regime
+    const shadeOpacity = era.streak % 2 === 0 ? opacity : opacity * 0.4;
+
+    addBlock(eraStart, eraEnd, era.color, shadeOpacity);
     currentYear = eraEnd;
   });
 
