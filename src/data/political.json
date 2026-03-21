@@ -1,40 +1,998 @@
 {
   "IND": [
-    { "leader": "Jawaharlal Nehru", "party": "INC", "color": "#00BFFF", "start": 1947, "end": 1964 },
-    { "leader": "Lal Bahadur Shastri", "party": "INC", "color": "#00BFFF", "start": 1964, "end": 1966 },
-    { "leader": "Indira Gandhi", "party": "INC", "color": "#00BFFF", "start": 1966, "end": 1977 },
-    { "leader": "Morarji Desai", "party": "Janata Party", "color": "#FF9933", "start": 1977, "end": 1979 },
-    { "leader": "Charan Singh", "party": "Janata Party", "color": "#FF9933", "start": 1979, "end": 1980 },
-    { "leader": "Indira Gandhi", "party": "INC", "color": "#00BFFF", "start": 1980, "end": 1984 },
-    { "leader": "Rajiv Gandhi", "party": "INC", "color": "#00BFFF", "start": 1984, "end": 1989 },
-    { "leader": "V. P. Singh", "party": "Janata Dal", "color": "#008000", "start": 1989, "end": 1990 },
-    { "leader": "Chandra Shekhar", "party": "Samajwadi Janata Party", "color": "#808000", "start": 1990, "end": 1991 },
-    { "leader": "P. V. Narasimha Rao", "party": "INC", "color": "#00BFFF", "start": 1991, "end": 1996 },
-    { "leader": "Atal Bihari Vajpayee", "party": "BJP", "color": "#FF9933", "start": 1996, "end": 1996 },
-    { "leader": "H. D. Deve Gowda", "party": "Janata Dal", "color": "#008000", "start": 1996, "end": 1997 },
-    { "leader": "I. K. Gujral", "party": "Janata Dal", "color": "#008000", "start": 1997, "end": 1998 },
-    { "leader": "Atal Bihari Vajpayee", "party": "BJP", "color": "#FF9933", "start": 1998, "end": 2004 },
-    { "leader": "Manmohan Singh", "party": "INC", "color": "#00BFFF", "start": 2004, "end": 2014 },
-    { "leader": "Narendra Modi", "party": "BJP", "color": "#FF9933", "start": 2014, "end": 2025 }
+    {
+      "leader": "Jawaharlal Nehru",
+      "party": "INC",
+      "color": "#00BFFF",
+      "start": 1947,
+      "end": 1964
+    },
+    {
+      "leader": "Lal Bahadur Shastri",
+      "party": "INC",
+      "color": "#00BFFF",
+      "start": 1964,
+      "end": 1966
+    },
+    {
+      "leader": "Indira Gandhi",
+      "party": "INC",
+      "color": "#00BFFF",
+      "start": 1966,
+      "end": 1977
+    },
+    {
+      "leader": "Morarji Desai",
+      "party": "Janata Party",
+      "color": "#FF9933",
+      "start": 1977,
+      "end": 1979
+    },
+    {
+      "leader": "Charan Singh",
+      "party": "Janata Party",
+      "color": "#FF9933",
+      "start": 1979,
+      "end": 1980
+    },
+    {
+      "leader": "Indira Gandhi",
+      "party": "INC",
+      "color": "#00BFFF",
+      "start": 1980,
+      "end": 1984
+    },
+    {
+      "leader": "Rajiv Gandhi",
+      "party": "INC",
+      "color": "#00BFFF",
+      "start": 1984,
+      "end": 1989
+    },
+    {
+      "leader": "V. P. Singh",
+      "party": "Janata Dal",
+      "color": "#008000",
+      "start": 1989,
+      "end": 1990
+    },
+    {
+      "leader": "Chandra Shekhar",
+      "party": "Samajwadi Janata Party",
+      "color": "#808000",
+      "start": 1990,
+      "end": 1991
+    },
+    {
+      "leader": "P. V. Narasimha Rao",
+      "party": "INC",
+      "color": "#00BFFF",
+      "start": 1991,
+      "end": 1996
+    },
+    {
+      "leader": "Atal Bihari Vajpayee",
+      "party": "BJP",
+      "color": "#FF9933",
+      "start": 1996,
+      "end": 1996
+    },
+    {
+      "leader": "H. D. Deve Gowda",
+      "party": "Janata Dal",
+      "color": "#008000",
+      "start": 1996,
+      "end": 1997
+    },
+    {
+      "leader": "I. K. Gujral",
+      "party": "Janata Dal",
+      "color": "#008000",
+      "start": 1997,
+      "end": 1998
+    },
+    {
+      "leader": "Atal Bihari Vajpayee",
+      "party": "BJP",
+      "color": "#FF9933",
+      "start": 1998,
+      "end": 2004
+    },
+    {
+      "leader": "Manmohan Singh",
+      "party": "INC",
+      "color": "#00BFFF",
+      "start": 2004,
+      "end": 2014
+    },
+    {
+      "leader": "Narendra Modi",
+      "party": "BJP",
+      "color": "#FF9933",
+      "start": 2014,
+      "end": 2025
+    }
   ],
   "CHN": [
-    { "leader": "Mao Zedong", "party": "CPC", "color": "#FF0000", "start": 1949, "end": 1976 },
-    { "leader": "Hua Guofeng", "party": "CPC", "color": "#FF0000", "start": 1976, "end": 1978 },
-    { "leader": "Deng Xiaoping", "party": "CPC", "color": "#FF0000", "start": 1978, "end": 1989 },
-    { "leader": "Jiang Zemin", "party": "CPC", "color": "#FF0000", "start": 1989, "end": 2002 },
-    { "leader": "Hu Jintao", "party": "CPC", "color": "#FF0000", "start": 2002, "end": 2012 },
-    { "leader": "Xi Jinping", "party": "CPC", "color": "#FF0000", "start": 2012, "end": 2025 }
+    {
+      "leader": "Mao Zedong",
+      "party": "CPC",
+      "color": "#FF0000",
+      "start": 1949,
+      "end": 1976
+    },
+    {
+      "leader": "Hua Guofeng",
+      "party": "CPC",
+      "color": "#FF0000",
+      "start": 1976,
+      "end": 1978
+    },
+    {
+      "leader": "Deng Xiaoping",
+      "party": "CPC",
+      "color": "#FF0000",
+      "start": 1978,
+      "end": 1989
+    },
+    {
+      "leader": "Jiang Zemin",
+      "party": "CPC",
+      "color": "#FF0000",
+      "start": 1989,
+      "end": 2002
+    },
+    {
+      "leader": "Hu Jintao",
+      "party": "CPC",
+      "color": "#FF0000",
+      "start": 2002,
+      "end": 2012
+    },
+    {
+      "leader": "Xi Jinping",
+      "party": "CPC",
+      "color": "#FF0000",
+      "start": 2012,
+      "end": 2025
+    }
   ],
   "USA": [
-    { "leader": "Richard Nixon", "party": "Republican", "color": "#FF0000", "start": 1969, "end": 1974 },
-    { "leader": "Gerald Ford", "party": "Republican", "color": "#FF0000", "start": 1974, "end": 1977 },
-    { "leader": "Jimmy Carter", "party": "Democratic", "color": "#0000FF", "start": 1977, "end": 1981 },
-    { "leader": "Ronald Reagan", "party": "Republican", "color": "#FF0000", "start": 1981, "end": 1989 },
-    { "leader": "George H.W. Bush", "party": "Republican", "color": "#FF0000", "start": 1989, "end": 1993 },
-    { "leader": "Bill Clinton", "party": "Democratic", "color": "#0000FF", "start": 1993, "end": 2001 },
-    { "leader": "George W. Bush", "party": "Republican", "color": "#FF0000", "start": 2001, "end": 2009 },
-    { "leader": "Barack Obama", "party": "Democratic", "color": "#0000FF", "start": 2009, "end": 2017 },
-    { "leader": "Donald Trump", "party": "Republican", "color": "#FF0000", "start": 2017, "end": 2021 },
-    { "leader": "Joe Biden", "party": "Democratic", "color": "#0000FF", "start": 2021, "end": 2025 }
+    {
+      "leader": "Richard Nixon",
+      "party": "Republican",
+      "color": "#FF0000",
+      "start": 1969,
+      "end": 1974
+    },
+    {
+      "leader": "Gerald Ford",
+      "party": "Republican",
+      "color": "#FF0000",
+      "start": 1974,
+      "end": 1977
+    },
+    {
+      "leader": "Jimmy Carter",
+      "party": "Democratic",
+      "color": "#0000FF",
+      "start": 1977,
+      "end": 1981
+    },
+    {
+      "leader": "Ronald Reagan",
+      "party": "Republican",
+      "color": "#FF0000",
+      "start": 1981,
+      "end": 1989
+    },
+    {
+      "leader": "George H.W. Bush",
+      "party": "Republican",
+      "color": "#FF0000",
+      "start": 1989,
+      "end": 1993
+    },
+    {
+      "leader": "Bill Clinton",
+      "party": "Democratic",
+      "color": "#0000FF",
+      "start": 1993,
+      "end": 2001
+    },
+    {
+      "leader": "George W. Bush",
+      "party": "Republican",
+      "color": "#FF0000",
+      "start": 2001,
+      "end": 2009
+    },
+    {
+      "leader": "Barack Obama",
+      "party": "Democratic",
+      "color": "#0000FF",
+      "start": 2009,
+      "end": 2017
+    },
+    {
+      "leader": "Donald Trump",
+      "party": "Republican",
+      "color": "#FF0000",
+      "start": 2017,
+      "end": 2021
+    },
+    {
+      "leader": "Joe Biden",
+      "party": "Democratic",
+      "color": "#0000FF",
+      "start": 2021,
+      "end": 2025
+    }
+  ],
+  "GBR": [
+    {
+      "leader": "Harold Wilson",
+      "party": "Labour",
+      "color": "#E4003B",
+      "start": 1964,
+      "end": 1970
+    },
+    {
+      "leader": "Edward Heath",
+      "party": "Conservative",
+      "color": "#0087DC",
+      "start": 1970,
+      "end": 1974
+    },
+    {
+      "leader": "Harold Wilson",
+      "party": "Labour",
+      "color": "#E4003B",
+      "start": 1974,
+      "end": 1976
+    },
+    {
+      "leader": "James Callaghan",
+      "party": "Labour",
+      "color": "#E4003B",
+      "start": 1976,
+      "end": 1979
+    },
+    {
+      "leader": "Margaret Thatcher",
+      "party": "Conservative",
+      "color": "#0087DC",
+      "start": 1979,
+      "end": 1990
+    },
+    {
+      "leader": "John Major",
+      "party": "Conservative",
+      "color": "#0087DC",
+      "start": 1990,
+      "end": 1997
+    },
+    {
+      "leader": "Tony Blair",
+      "party": "Labour",
+      "color": "#E4003B",
+      "start": 1997,
+      "end": 2007
+    },
+    {
+      "leader": "Gordon Brown",
+      "party": "Labour",
+      "color": "#E4003B",
+      "start": 2007,
+      "end": 2010
+    },
+    {
+      "leader": "David Cameron",
+      "party": "Conservative",
+      "color": "#0087DC",
+      "start": 2010,
+      "end": 2016
+    },
+    {
+      "leader": "Theresa May",
+      "party": "Conservative",
+      "color": "#0087DC",
+      "start": 2016,
+      "end": 2019
+    },
+    {
+      "leader": "Boris Johnson",
+      "party": "Conservative",
+      "color": "#0087DC",
+      "start": 2019,
+      "end": 2022
+    },
+    {
+      "leader": "Liz Truss / Rishi Sunak",
+      "party": "Conservative",
+      "color": "#0087DC",
+      "start": 2022,
+      "end": 2024
+    },
+    {
+      "leader": "Keir Starmer",
+      "party": "Labour",
+      "color": "#E4003B",
+      "start": 2024,
+      "end": 2025
+    }
+  ],
+  "DEU": [
+    {
+      "leader": "Konrad Adenauer",
+      "party": "CDU",
+      "color": "#000000",
+      "start": 1949,
+      "end": 1963
+    },
+    {
+      "leader": "Ludwig Erhard",
+      "party": "CDU",
+      "color": "#000000",
+      "start": 1963,
+      "end": 1966
+    },
+    {
+      "leader": "Kurt Georg Kiesinger",
+      "party": "CDU",
+      "color": "#000000",
+      "start": 1966,
+      "end": 1969
+    },
+    {
+      "leader": "Willy Brandt",
+      "party": "SPD",
+      "color": "#E3000F",
+      "start": 1969,
+      "end": 1974
+    },
+    {
+      "leader": "Helmut Schmidt",
+      "party": "SPD",
+      "color": "#E3000F",
+      "start": 1974,
+      "end": 1982
+    },
+    {
+      "leader": "Helmut Kohl",
+      "party": "CDU",
+      "color": "#000000",
+      "start": 1982,
+      "end": 1998
+    },
+    {
+      "leader": "Gerhard Schröder",
+      "party": "SPD",
+      "color": "#E3000F",
+      "start": 1998,
+      "end": 2005
+    },
+    {
+      "leader": "Angela Merkel",
+      "party": "CDU",
+      "color": "#000000",
+      "start": 2005,
+      "end": 2021
+    },
+    {
+      "leader": "Olaf Scholz",
+      "party": "SPD",
+      "color": "#E3000F",
+      "start": 2021,
+      "end": 2025
+    }
+  ],
+  "JPN": [
+    {
+      "leader": "Yasuhiro Nakasone",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 1982,
+      "end": 1987
+    },
+    {
+      "leader": "Noboru Takeshita",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 1987,
+      "end": 1989
+    },
+    {
+      "leader": "Toshiki Kaifu",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 1989,
+      "end": 1991
+    },
+    {
+      "leader": "Kiichi Miyazawa",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 1991,
+      "end": 1993
+    },
+    {
+      "leader": "Hosokawa / Hata",
+      "party": "Non-LDP",
+      "color": "#ff9900",
+      "start": 1993,
+      "end": 1994
+    },
+    {
+      "leader": "Tomiichi Murayama",
+      "party": "JSP",
+      "color": "#d21123",
+      "start": 1994,
+      "end": 1996
+    },
+    {
+      "leader": "Ryutaro Hashimoto",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 1996,
+      "end": 1998
+    },
+    {
+      "leader": "Keizo Obuchi",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 1998,
+      "end": 2000
+    },
+    {
+      "leader": "Yoshiro Mori",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 2000,
+      "end": 2001
+    },
+    {
+      "leader": "Junichiro Koizumi",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 2001,
+      "end": 2006
+    },
+    {
+      "leader": "Abe / Fukuda / Aso",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 2006,
+      "end": 2009
+    },
+    {
+      "leader": "Hatoyama / Kan / Noda",
+      "party": "DPJ",
+      "color": "#d21123",
+      "start": 2009,
+      "end": 2012
+    },
+    {
+      "leader": "Shinzo Abe",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 2012,
+      "end": 2020
+    },
+    {
+      "leader": "Yoshihide Suga",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 2020,
+      "end": 2021
+    },
+    {
+      "leader": "Fumio Kishida",
+      "party": "LDP",
+      "color": "#3ca324",
+      "start": 2021,
+      "end": 2025
+    }
+  ],
+  "FRA": [
+    {
+      "leader": "Charles de Gaulle",
+      "party": "UDR",
+      "color": "#0000FF",
+      "start": 1959,
+      "end": 1969
+    },
+    {
+      "leader": "Georges Pompidou",
+      "party": "UDR",
+      "color": "#0000FF",
+      "start": 1969,
+      "end": 1974
+    },
+    {
+      "leader": "Valéry Giscard d'Estaing",
+      "party": "UDF",
+      "color": "#00FFFF",
+      "start": 1974,
+      "end": 1981
+    },
+    {
+      "leader": "François Mitterrand",
+      "party": "PS",
+      "color": "#e8112d",
+      "start": 1981,
+      "end": 1995
+    },
+    {
+      "leader": "Jacques Chirac",
+      "party": "RPR/UMP",
+      "color": "#0000FF",
+      "start": 1995,
+      "end": 2007
+    },
+    {
+      "leader": "Nicolas Sarkozy",
+      "party": "UMP",
+      "color": "#0000FF",
+      "start": 2007,
+      "end": 2012
+    },
+    {
+      "leader": "François Hollande",
+      "party": "PS",
+      "color": "#e8112d",
+      "start": 2012,
+      "end": 2017
+    },
+    {
+      "leader": "Emmanuel Macron",
+      "party": "RE",
+      "color": "#ffeb00",
+      "start": 2017,
+      "end": 2025
+    }
+  ],
+  "ITA": [
+    {
+      "leader": "Bettino Craxi",
+      "party": "PSI",
+      "color": "#e8112d",
+      "start": 1983,
+      "end": 1987
+    },
+    {
+      "leader": "Giulio Andreotti",
+      "party": "DC",
+      "color": "#87CEEB",
+      "start": 1989,
+      "end": 1992
+    },
+    {
+      "leader": "Giuliano Amato / Ciampi",
+      "party": "Ind",
+      "color": "#808080",
+      "start": 1992,
+      "end": 1994
+    },
+    {
+      "leader": "Silvio Berlusconi",
+      "party": "FI",
+      "color": "#0000FF",
+      "start": 1994,
+      "end": 1995
+    },
+    {
+      "leader": "Romano Prodi / D'Alema",
+      "party": "Olive Tree",
+      "color": "#e8112d",
+      "start": 1996,
+      "end": 2001
+    },
+    {
+      "leader": "Silvio Berlusconi",
+      "party": "FI",
+      "color": "#0000FF",
+      "start": 2001,
+      "end": 2006
+    },
+    {
+      "leader": "Romano Prodi",
+      "party": "The Union",
+      "color": "#e8112d",
+      "start": 2006,
+      "end": 2008
+    },
+    {
+      "leader": "Silvio Berlusconi",
+      "party": "PDL",
+      "color": "#0000FF",
+      "start": 2008,
+      "end": 2011
+    },
+    {
+      "leader": "Mario Monti",
+      "party": "Ind",
+      "color": "#808080",
+      "start": 2011,
+      "end": 2013
+    },
+    {
+      "leader": "Letta / Renzi / Gentiloni",
+      "party": "PD",
+      "color": "#e8112d",
+      "start": 2013,
+      "end": 2018
+    },
+    {
+      "leader": "Giuseppe Conte",
+      "party": "Ind/M5S",
+      "color": "#ffeb00",
+      "start": 2018,
+      "end": 2021
+    },
+    {
+      "leader": "Mario Draghi",
+      "party": "Ind",
+      "color": "#808080",
+      "start": 2021,
+      "end": 2022
+    },
+    {
+      "leader": "Giorgia Meloni",
+      "party": "FdI",
+      "color": "#00008B",
+      "start": 2022,
+      "end": 2025
+    }
+  ],
+  "RUS": [
+    {
+      "leader": "Boris Yeltsin",
+      "party": "Ind",
+      "color": "#808080",
+      "start": 1991,
+      "end": 1999
+    },
+    {
+      "leader": "Vladimir Putin",
+      "party": "United Russia",
+      "color": "#0033A0",
+      "start": 1999,
+      "end": 2008
+    },
+    {
+      "leader": "Dmitry Medvedev",
+      "party": "United Russia",
+      "color": "#0033A0",
+      "start": 2008,
+      "end": 2012
+    },
+    {
+      "leader": "Vladimir Putin",
+      "party": "United Russia",
+      "color": "#0033A0",
+      "start": 2012,
+      "end": 2025
+    }
+  ],
+  "CAN": [
+    {
+      "leader": "Pierre Trudeau",
+      "party": "Liberal",
+      "color": "#d71920",
+      "start": 1968,
+      "end": 1979
+    },
+    {
+      "leader": "Joe Clark",
+      "party": "Conservative",
+      "color": "#1a4782",
+      "start": 1979,
+      "end": 1980
+    },
+    {
+      "leader": "Pierre Trudeau",
+      "party": "Liberal",
+      "color": "#d71920",
+      "start": 1980,
+      "end": 1984
+    },
+    {
+      "leader": "Brian Mulroney",
+      "party": "Conservative",
+      "color": "#1a4782",
+      "start": 1984,
+      "end": 1993
+    },
+    {
+      "leader": "Jean Chrétien",
+      "party": "Liberal",
+      "color": "#d71920",
+      "start": 1993,
+      "end": 2003
+    },
+    {
+      "leader": "Paul Martin",
+      "party": "Liberal",
+      "color": "#d71920",
+      "start": 2003,
+      "end": 2006
+    },
+    {
+      "leader": "Stephen Harper",
+      "party": "Conservative",
+      "color": "#1a4782",
+      "start": 2006,
+      "end": 2015
+    },
+    {
+      "leader": "Justin Trudeau",
+      "party": "Liberal",
+      "color": "#d71920",
+      "start": 2015,
+      "end": 2025
+    }
+  ],
+  "AUS": [
+    {
+      "leader": "Gough Whitlam",
+      "party": "Labor",
+      "color": "#E4003B",
+      "start": 1972,
+      "end": 1975
+    },
+    {
+      "leader": "Malcolm Fraser",
+      "party": "Liberal",
+      "color": "#0047AB",
+      "start": 1975,
+      "end": 1983
+    },
+    {
+      "leader": "Bob Hawke",
+      "party": "Labor",
+      "color": "#E4003B",
+      "start": 1983,
+      "end": 1991
+    },
+    {
+      "leader": "Paul Keating",
+      "party": "Labor",
+      "color": "#E4003B",
+      "start": 1991,
+      "end": 1996
+    },
+    {
+      "leader": "John Howard",
+      "party": "Liberal",
+      "color": "#0047AB",
+      "start": 1996,
+      "end": 2007
+    },
+    {
+      "leader": "Rudd / Gillard / Rudd",
+      "party": "Labor",
+      "color": "#E4003B",
+      "start": 2007,
+      "end": 2013
+    },
+    {
+      "leader": "Abbott / Turnbull",
+      "party": "Liberal",
+      "color": "#0047AB",
+      "start": 2013,
+      "end": 2018
+    },
+    {
+      "leader": "Scott Morrison",
+      "party": "Liberal",
+      "color": "#0047AB",
+      "start": 2018,
+      "end": 2022
+    },
+    {
+      "leader": "Anthony Albanese",
+      "party": "Labor",
+      "color": "#E4003B",
+      "start": 2022,
+      "end": 2025
+    }
+  ],
+  "BGD": [
+    {
+      "leader": "Mujibur Rahman",
+      "party": "AL",
+      "color": "#006a4e",
+      "start": 1971,
+      "end": 1975
+    },
+    {
+      "leader": "Ziaur Rahman",
+      "party": "BNP",
+      "color": "#1f3a93",
+      "start": 1977,
+      "end": 1981
+    },
+    {
+      "leader": "H. M. Ershad",
+      "party": "Jatiya",
+      "color": "#f1c40f",
+      "start": 1983,
+      "end": 1990
+    },
+    {
+      "leader": "Khaleda Zia",
+      "party": "BNP",
+      "color": "#1f3a93",
+      "start": 1991,
+      "end": 1996
+    },
+    {
+      "leader": "Sheikh Hasina",
+      "party": "AL",
+      "color": "#006a4e",
+      "start": 1996,
+      "end": 2001
+    },
+    {
+      "leader": "Khaleda Zia",
+      "party": "BNP",
+      "color": "#1f3a93",
+      "start": 2001,
+      "end": 2006
+    },
+    {
+      "leader": "Fakhruddin Ahmed",
+      "party": "Caretaker",
+      "color": "#808080",
+      "start": 2007,
+      "end": 2009
+    },
+    {
+      "leader": "Sheikh Hasina",
+      "party": "AL",
+      "color": "#006a4e",
+      "start": 2009,
+      "end": 2024
+    }
+  ],
+  "PAK": [
+    {
+      "leader": "Zulfikar Ali Bhutto",
+      "party": "PPP",
+      "color": "#000000",
+      "start": 1971,
+      "end": 1977
+    },
+    {
+      "leader": "Muhammad Zia-ul-Haq",
+      "party": "Military",
+      "color": "#006600",
+      "start": 1977,
+      "end": 1988
+    },
+    {
+      "leader": "Benazir Bhutto",
+      "party": "PPP",
+      "color": "#000000",
+      "start": 1988,
+      "end": 1990
+    },
+    {
+      "leader": "Nawaz Sharif",
+      "party": "PML-N",
+      "color": "#009900",
+      "start": 1990,
+      "end": 1993
+    },
+    {
+      "leader": "Benazir Bhutto",
+      "party": "PPP",
+      "color": "#000000",
+      "start": 1993,
+      "end": 1996
+    },
+    {
+      "leader": "Nawaz Sharif",
+      "party": "PML-N",
+      "color": "#009900",
+      "start": 1997,
+      "end": 1999
+    },
+    {
+      "leader": "Pervez Musharraf",
+      "party": "Military/PML-Q",
+      "color": "#006600",
+      "start": 1999,
+      "end": 2008
+    },
+    {
+      "leader": "Gillani / Ashraf",
+      "party": "PPP",
+      "color": "#000000",
+      "start": 2008,
+      "end": 2013
+    },
+    {
+      "leader": "Sharif / Abbasi",
+      "party": "PML-N",
+      "color": "#009900",
+      "start": 2013,
+      "end": 2018
+    },
+    {
+      "leader": "Imran Khan",
+      "party": "PTI",
+      "color": "#e3000f",
+      "start": 2018,
+      "end": 2022
+    },
+    {
+      "leader": "Shehbaz Sharif",
+      "party": "PML-N",
+      "color": "#009900",
+      "start": 2022,
+      "end": 2025
+    }
+  ],
+  "MAC": [
+    {
+      "leader": "Edmund Ho",
+      "party": "Ind",
+      "color": "#008000",
+      "start": 1999,
+      "end": 2009
+    },
+    {
+      "leader": "Fernando Chui",
+      "party": "Ind",
+      "color": "#008000",
+      "start": 2009,
+      "end": 2019
+    },
+    {
+      "leader": "Ho Iat Seng",
+      "party": "Ind",
+      "color": "#008000",
+      "start": 2019,
+      "end": 2025
+    }
+  ],
+  "HKG": [
+    {
+      "leader": "Tung Chee-hwa",
+      "party": "Ind",
+      "color": "#FF0000",
+      "start": 1997,
+      "end": 2005
+    },
+    {
+      "leader": "Donald Tsang",
+      "party": "Ind",
+      "color": "#FF0000",
+      "start": 2005,
+      "end": 2012
+    },
+    {
+      "leader": "CY Leung",
+      "party": "Ind",
+      "color": "#FF0000",
+      "start": 2012,
+      "end": 2017
+    },
+    {
+      "leader": "Carrie Lam",
+      "party": "Ind",
+      "color": "#FF0000",
+      "start": 2017,
+      "end": 2022
+    },
+    {
+      "leader": "John Lee",
+      "party": "Ind",
+      "color": "#FF0000",
+      "start": 2022,
+      "end": 2025
+    }
   ]
 }

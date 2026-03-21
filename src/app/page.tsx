@@ -70,7 +70,7 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
             </div>
           )}
 
-          {countryCodes.includes("CHN") && (
+          {/* {countryCodes.includes("CHN") && (
             <div className="bg-muted/30 border border-muted/60 p-5 rounded-xl flex items-start gap-4 animate-in fade-in duration-700 delay-500 fill-mode-both relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <span className="text-2xl mt-0.5 relative z-10">🇨🇳</span>
@@ -78,7 +78,7 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
                 <strong className="text-foreground">China Dataset Note:</strong> Visualizations covering China automatically enforce comparative bounds including <strong>Macao SAR</strong> and <strong>Hong Kong SAR</strong> to capture the complete regional economic footprint as configured.
               </p>
             </div>
-          )}
+          )} */}
         </section>
       </div>
     </main>
