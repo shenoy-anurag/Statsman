@@ -18,3 +18,13 @@
 - [x] Phase 4: Global UI Components
   - [x] Build sleek navigation bar with GitHub/Support links
   - [x] Build minimal site footer
+- [x] Phase 5: Homepage Redesign & Dashboard
+  - [x] Move interactive explore tool to `/explore`
+  - [x] Define `TOP_INDICATORS` for default dashboard view
+  - [x] Build 5x2 grid dashboard on `/` comparing top indicators for IND, CHN, USA
+  - [x] Update global Navbar with Explore link
+- [x] Phase 6: Data Expansion & Refinement
+  - [x] Integrate political leadership datasets for UK, EU, JP, AUS, CAN, etc.
+  - [x] Fix structural `IndicatorConfig` missing types
+  - [x] Trim localized/redundant administrative regions from comparative data
+

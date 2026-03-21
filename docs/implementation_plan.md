@@ -41,6 +41,17 @@ Create a highly interactive and stunning web application to visualize economic a
 - Develop a global navigation bar with branding, GitHub repository link, and support link.
 - Develop a global site footer with copyright, About page, and relevant source links.
 
+#### Phase 5: Data Expansion & Refinement
+- Curated and integrated expanded political leadership datasets (from roughly post-WWII onwards) for the UK, Germany, Japan, France, Italy, Russia, Canada, Australia, Bangladesh, and Pakistan.
+- Addressed TypeScript interfaces (e.g., `IndicatorConfig` `type` fields) ensuring all items correctly flag whether they are absolute figures or percentages.
+- Dropped irrelevant localized regions to simplify user visualizations (e.g., Hong Kong, Macao).
+
+#### Phase 6: Homepage Redesign & Dashboard
+- Move the core interactive data exploration tool to a dedicated `/explore` route.
+- Create a new root dashboard (`/`) displaying a 5x2 grid of the 10 most critical indicators for major structural economies (India, China, USA).
+- Wrap each mini-chart in a smooth programmatic link to seamlessly transition into the interactive `/explore` view.
+
+
 ## Verification Plan
 
 ### Automated Tests

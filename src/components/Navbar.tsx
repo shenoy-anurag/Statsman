@@ -16,6 +16,14 @@ export function Navbar() {
         </Link>
 
         <nav className="flex items-center gap-3 md:gap-4 text-sm font-medium">
+
+          <Link
+            href="/explore"
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mr-2"
+          >
+            <span className="hidden sm:inline-block font-semibold">Explore Data</span>
+          </Link>
+
           <ThemeToggle />
 
           <Link

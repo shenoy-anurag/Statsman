@@ -116,7 +116,7 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
 
   return (
     <div className="w-full flex-col flex items-start gap-4">
-      <h3 className="text-xl font-bold tracking-tight">{indicatorName}</h3>
+      {/* <h3 className="text-xl font-bold tracking-tight">{indicatorName}</h3> */}
       <ChartContainer config={chartConfig} className="h-[500px] w-full bg-card rounded-xl border p-4">
         <AreaChart accessibilityLayer data={data} margin={{ left: 16, right: 16, top: 16, bottom: 16 }}>
           <defs>

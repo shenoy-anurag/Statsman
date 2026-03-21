@@ -1,86 +1,85 @@
 import { IndicatorChart } from "@/components/IndicatorChart";
-import { Controls } from "@/components/Controls";
 import { getMergedChartData } from "@/lib/data-merger";
-import { INDICATORS_MAP } from "@/constants/indicators";
-import { trackView } from "@/lib/analytics";
-import { TrendingComparisons } from "@/components/Trending";
+import { INDICATORS_MAP, TOP_INDICATORS } from "@/constants/indicators";
+import Link from "next/link";
 
-// Next.js 15: searchParams is a Promise for Server Components
-export default async function Home(props: { searchParams: Promise<{ indicator?: string, countries?: string, start?: string, end?: string }> }) {
-  const searchParams = await props.searchParams;
+export default async function DashboardHome() {
+  const countryCodes = ["IND", "CHN", "USA"];
+  const startYear = 1976;
+  const endYear = 2024;
 
-  // Parse parameters
-  const indicatorCode = searchParams.indicator || "SP.POP.TOTL"; // Default: Population
-  const countriesParam = searchParams.countries || "IND,CHN,USA";
-  const startYear = parseInt(searchParams.start || "1960", 10);
-  const endYear = parseInt(searchParams.end || new Date().getFullYear().toString(), 10);
+  // Fetch data for all top indicators
+  const chartsData = await Promise.all(
+    TOP_INDICATORS.map(async (indicatorCode) => {
+      const data = await getMergedChartData(indicatorCode, countryCodes, startYear, endYear);
+      return {
+        indicatorCode,
+        config: INDICATORS_MAP[indicatorCode],
+        data
+      };
+    })
+  );
 
-  const countryCodes = countriesParam.split(",").filter(Boolean);
-
-  const data = await getMergedChartData(indicatorCode, countryCodes, startYear, endYear);
-  const indicatorConfig = INDICATORS_MAP[indicatorCode];
-
-  // Track the view asynchronously
-  if (countryCodes.length > 0) {
-    trackView(indicatorCode, countriesParam);
-  }
+  const topChartCountries = ["IND"];
+  const topChartCountryName = "India";
+  const topChartIndicatorCode = "NY.GDP.MKTP.CD";
+  const topChartIndicatorName = "GDP (current US$)";
+  const topChartData = await getMergedChartData(topChartIndicatorCode, topChartCountries, startYear, endYear);
 
   return (
     <main className="min-h-screen bg-background text-foreground p-6 md:p-12 xl:p-16 w-full mx-auto flex flex-col gap-8 md:gap-12 transition-all">
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
-        <aside className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-8 flex flex-col gap-6">
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5">
-            <Controls
-              initialIndicator={indicatorCode}
-              initialCountries={countriesParam}
-              initialStart={startYear}
-              initialEnd={endYear}
-            />
-          </div>
-
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5 mt-0 lg:mt-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
-            <TrendingComparisons />
-          </div>
-        </aside>
-
-        <section className="lg:col-span-8 xl:col-span-9 flex flex-col gap-6 w-full min-w-0">
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-6 min-h-[500px] animate-in fade-in slide-in-from-right-8 duration-700 delay-150 fill-mode-both w-full overflow-hidden">
-            {countryCodes.length > 0 ? (
-              <IndicatorChart
-                data={data}
-                countryCodes={countryCodes}
-                indicatorName={indicatorConfig?.name || indicatorCode}
-              />
-            ) : (
-              <div className="w-full h-[500px] flex items-center justify-center text-muted-foreground font-medium">
-                Select at least one country to compare.
-              </div>
-            )}
-          </div>
-
-          {indicatorConfig?.caveat && (
-            <div className="bg-muted/30 border border-muted/60 p-5 rounded-xl flex items-start gap-4 animate-in fade-in duration-700 delay-300 fill-mode-both relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <span className="text-2xl mt-0.5 relative z-10">💡</span>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
-                <strong className="text-foreground">Analytical Context:</strong> {indicatorConfig.caveat}
-              </p>
-              <div className="text-xs text-muted-foreground/60 w-full text-right absolute bottom-2 right-4">Source: World Bank</div>
-            </div>
-          )}
-
-          {/* {countryCodes.includes("CHN") && (
-            <div className="bg-muted/30 border border-muted/60 p-5 rounded-xl flex items-start gap-4 animate-in fade-in duration-700 delay-500 fill-mode-both relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <span className="text-2xl mt-0.5 relative z-10">🇨🇳</span>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
-                <strong className="text-foreground">China Dataset Note:</strong> Visualizations covering China automatically enforce comparative bounds including <strong>Macao SAR</strong> and <strong>Hong Kong SAR</strong> to capture the complete regional economic footprint as configured.
-              </p>
-            </div>
-          )} */}
-        </section>
+      <div className="flex flex-col gap-4 max-w-4xl">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+          Global Macro Dashboard
+        </h1>
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          Comparing the top 10 socio-economic indicators between the world's most populous and influential countries. Click on any chart to explore other metrics, regions, and dates in detail.
+        </p>
       </div>
+
+      <div className="w-full flex-col flex items-start gap-4">
+        <h3 className="text-xl font-bold tracking-tight mb-4">{topChartIndicatorName} - {topChartCountryName}</h3>
+        <IndicatorChart
+          data={topChartData}
+          countryCodes={topChartCountries}
+          indicatorName={topChartIndicatorCode}
+        />
+      </div>
+
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full">
+        {chartsData.map((item, index) => {
+          if (!item.config) return null;
+
+          return (
+            <Link
+              key={item.indicatorCode}
+              href={`/explore?indicator=${item.indicatorCode}&countries=${countryCodes.join(",")}`}
+              className="group block"
+            >
+              <div
+                className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="mb-4 flex items-center justify-between">
+                  <h2 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    {item.config.name}
+                  </h2>
+                  <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-300">
+                    Explore →
+                  </span>
+                </div>
+                <div className="w-full flex-grow relative min-h-[300px]">
+                  <IndicatorChart
+                    data={item.data}
+                    countryCodes={countryCodes}
+                    indicatorName={item.config.name}
+                  />
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </section>
     </main>
   );
 }

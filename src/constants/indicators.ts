@@ -133,3 +133,16 @@ export const INDICATORS_MAP = INDICATORS.reduce((acc, curr) => {
   acc[curr.id] = curr;
   return acc;
 }, {} as Record<string, IndicatorConfig>);
+
+export const TOP_INDICATORS = [
+  "NY.GDP.MKTP.CD",      // GDP
+  "NY.GDP.PCAP.CD",      // GDP per capita
+  "NY.GNS.ICTR.GN.ZS",   // Gross Savings
+  "SL.UEM.TOTL.ZS",      // Unemployment
+  "SE.PRM.ENRR",         // School enrollment
+  "SP.DYN.LE00.IN",      // Life expectancy
+  "EG.ELC.ACCS.ZS",      // Electricity access
+  "EN.ATM.CO2E.PC",      // CO2 emissions
+  "BX.KLT.DINV.CD.WD",   // FDI
+  "SP.POP.TOTL"          // Population
+];
