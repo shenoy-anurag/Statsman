@@ -26,10 +26,10 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
   const chartConfig = useMemo(() => {
     const config: ChartConfig = {};
     const colors = [
-      "var(--color-chart-1)", 
-      "var(--color-chart-2)", 
-      "var(--color-chart-3)", 
-      "var(--color-chart-4)", 
+      "var(--color-chart-1)",
+      "var(--color-chart-2)",
+      "var(--color-chart-3)",
+      "var(--color-chart-4)",
       "var(--color-chart-5)"
     ];
     countryCodes.forEach((code, i) => {
@@ -50,64 +50,64 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
           {payload
             .filter((entry: any, index: number, self: any[]) => index === self.findIndex(t => t.dataKey === entry.dataKey))
             .map((entry: any, index: number) => {
-            const countryCode = entry.dataKey;
-            const era: PoliticalEra | undefined = entry.payload[`${countryCode}_era`];
-            
-            let value = entry.value;
-            let dataSourceYear = label as number;
-            let isMissing = false;
+              const countryCode = entry.dataKey;
+              const era: PoliticalEra | undefined = entry.payload[`${countryCode}_era`];
 
-            if (value === null || value === undefined) {
-              isMissing = true;
-              if (era) {
-                // Find all valid data points for this country within the same political era
-                const validPointsInEra = data.filter(d => {
-                  const dEra = d[`${countryCode}_era`] as PoliticalEra | undefined;
-                  return dEra && dEra.leader === era.leader && d[countryCode] !== null && d[countryCode] !== undefined;
-                });
+              let value = entry.value;
+              let dataSourceYear = label as number;
+              let isMissing = false;
 
-                if (validPointsInEra.length > 0) {
-                  // Fall back to the closest available data point in this era
-                  const closest = validPointsInEra.reduce((prev, curr) => 
-                    Math.abs(curr.year - (label as number)) < Math.abs(prev.year - (label as number)) ? curr : prev
-                  );
-                  value = closest[countryCode];
-                  dataSourceYear = closest.year;
+              if (value === null || value === undefined) {
+                isMissing = true;
+                if (era) {
+                  // Find all valid data points for this country within the same political era
+                  const validPointsInEra = data.filter(d => {
+                    const dEra = d[`${countryCode}_era`] as PoliticalEra | undefined;
+                    return dEra && dEra.leader === era.leader && d[countryCode] !== null && d[countryCode] !== undefined;
+                  });
+
+                  if (validPointsInEra.length > 0) {
+                    // Fall back to the closest available data point in this era
+                    const closest = validPointsInEra.reduce((prev, curr) =>
+                      Math.abs(curr.year - (label as number)) < Math.abs(prev.year - (label as number)) ? curr : prev
+                    );
+                    value = closest[countryCode];
+                    dataSourceYear = closest.year;
+                  }
                 }
               }
-            }
 
-            return (
-              <div key={index} className="flex flex-col gap-1 border-l-4 pl-3 py-1" style={{ borderLeftColor: entry.color }}>
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex flex-col">
-                    <span className="font-medium" style={{ color: entry.color }}>{countryCode}</span>
-                    {isMissing && value !== null && value !== undefined && (
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                        (Data from {dataSourceYear})
-                      </span>
-                    )}
+              return (
+                <div key={index} className="flex flex-col gap-1 border-l-4 pl-3 py-1" style={{ borderLeftColor: entry.color }}>
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-col">
+                      <span className="font-medium" style={{ color: entry.color }}>{countryCode}</span>
+                      {isMissing && value !== null && value !== undefined && (
+                        <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                          (Data from {dataSourceYear})
+                        </span>
+                      )}
+                    </div>
+                    <span className="font-semibold text-foreground">
+                      {value !== null && value !== undefined
+                        ? value.toLocaleString(undefined, { maximumFractionDigits: 2 })
+                        : "No Data"}
+                    </span>
                   </div>
-                  <span className="font-semibold text-foreground">
-                    {value !== null && value !== undefined 
-                      ? value.toLocaleString(undefined, { maximumFractionDigits: 2 }) 
-                      : "No Data"}
-                  </span>
+                  {era ? (
+                    <div className="text-xs text-muted-foreground bg-muted p-2 rounded-md mt-1 flex flex-col gap-0.5">
+                      <span className="block font-medium text-foreground text-sm">{era.leader}</span>
+                      <span className="block">{era.party}</span>
+                      <div className="w-full h-1 mt-1 rounded-full opacity-70" style={{ backgroundColor: era.color }}></div>
+                    </div>
+                  ) : (
+                    <div className="text-xs text-muted-foreground bg-muted/50 p-2 rounded-md mt-1 border border-dashed">
+                      Unknown Leader Data
+                    </div>
+                  )}
                 </div>
-                {era ? (
-                  <div className="text-xs text-muted-foreground bg-muted p-2 rounded-md mt-1 flex flex-col gap-0.5">
-                    <span className="block font-medium text-foreground text-sm">{era.leader}</span>
-                    <span className="block">{era.party}</span>
-                    <div className="w-full h-1 mt-1 rounded-full opacity-70" style={{ backgroundColor: era.color }}></div>
-                  </div>
-                ) : (
-                  <div className="text-xs text-muted-foreground bg-muted/50 p-2 rounded-md mt-1 border border-dashed">
-                    Unknown Leader Data
-                  </div>
-                )}
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       );
     }
@@ -117,14 +117,14 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
   return (
     <div className="w-full flex-col flex items-start gap-4">
       <h3 className="text-xl font-bold tracking-tight">{indicatorName}</h3>
-      <ChartContainer config={chartConfig} className="h-[500px] w-full bg-card rounded-xl border p-4 shadow-sm">
+      <ChartContainer config={chartConfig} className="h-[500px] w-full bg-card rounded-xl border p-4">
         <AreaChart accessibilityLayer data={data} margin={{ left: 16, right: 16, top: 16, bottom: 16 }}>
           <defs>
-            {countryCodes.map(code => 
-              generateEraGradient({ 
-                countryCode: code, 
-                minYear, 
-                maxYear, 
+            {countryCodes.map(code =>
+              generateEraGradient({
+                countryCode: code,
+                minYear,
+                maxYear,
                 opacity: countriesToOverlay.length > 1 ? 0.08 : 0.18,
                 enabled: countriesToOverlay.includes(code)
               })
@@ -138,20 +138,20 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
             tickMargin={12}
             minTickGap={32}
           />
-          <YAxis 
-            tickLine={false} 
-            axisLine={false} 
-            tickMargin={12} 
+          <YAxis
+            tickLine={false}
+            axisLine={false}
+            tickMargin={12}
             width={80}
             tickFormatter={(value) => {
               if (value >= 1e9) return (value / 1e9).toFixed(1) + 'B';
               if (value >= 1e6) return (value / 1e6).toFixed(1) + 'M';
               if (value >= 1e3) return (value / 1e3).toFixed(1) + 'K';
               return value.toLocaleString();
-            }} 
+            }}
           />
           <ChartTooltip cursor={{ stroke: "hsl(var(--muted-foreground))", strokeWidth: 1, strokeDasharray: "4 4" }} content={<CustomTooltipContent />} />
-          
+
           {/* Continuous background areas with dashed interpolation linking data gaps */}
           {countryCodes.map((code) => (
             <Area

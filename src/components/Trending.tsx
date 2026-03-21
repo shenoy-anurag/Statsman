@@ -11,10 +11,10 @@ export async function TrendingComparisons() {
       </h3>
       <div className="flex flex-col gap-3">
         {trends.map(trend => (
-          <Link 
-            key={trend.id} 
+          <Link
+            key={trend.id}
             href={`/?indicator=${trend.indicator}&countries=${trend.countries}&start=${trend.start}&end=${trend.end}`}
-            className="flex flex-col gap-1 p-3 rounded-xl border border-border/50 bg-background hover:bg-muted/30 hover:border-border transition-all group shadow-sm text-left"
+            className="flex flex-col gap-1 p-3 rounded-xl border border-border/50 bg-background hover:bg-muted/30 hover:border-border transition-all group text-left"
           >
             <span className="font-semibold text-sm group-hover:text-primary transition-colors leading-tight">{trend.title}</span>
             <div className="flex items-center gap-2 text-xs text-muted-foreground mt-1">

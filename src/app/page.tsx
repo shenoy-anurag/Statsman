@@ -30,7 +30,7 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
         <aside className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-8 flex flex-col gap-6">
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5 shadow-sm">
+          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5">
             <Controls
               initialIndicator={indicatorCode}
               initialCountries={countriesParam}
@@ -39,13 +39,13 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
             />
           </div>
 
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5 shadow-sm mt-0 lg:mt-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
+          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5 mt-0 lg:mt-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
             <TrendingComparisons />
           </div>
         </aside>
 
         <section className="lg:col-span-8 xl:col-span-9 flex flex-col gap-6 w-full min-w-0">
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-sm min-h-[500px] animate-in fade-in slide-in-from-right-8 duration-700 delay-150 fill-mode-both w-full overflow-hidden">
+          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-6 min-h-[500px] animate-in fade-in slide-in-from-right-8 duration-700 delay-150 fill-mode-both w-full overflow-hidden">
             {countryCodes.length > 0 ? (
               <IndicatorChart
                 data={data}
