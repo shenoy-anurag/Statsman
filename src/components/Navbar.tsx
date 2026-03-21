@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Github, Coffee, Activity } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar() {
   return (
@@ -14,7 +15,9 @@ export function Navbar() {
           </span>
         </Link>
         
-        <nav className="flex items-center gap-4 text-sm font-medium">
+        <nav className="flex items-center gap-3 md:gap-4 text-sm font-medium">
+          <ThemeToggle />
+          
           <Link
             href="https://github.com/shenoy-anurag/statsman"
             target="_blank"
