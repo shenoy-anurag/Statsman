@@ -6,7 +6,7 @@ export interface IndicatorData {
 
 /**
  * Fetches indicator data utilizing a dual-strategy (Offline JSON + REST API).
- * By default it checks for offline data first to ensure snappy visualizations.
+ * By default it dynamically imports the local optimized datastore first.
  */
 export async function fetchIndicatorData(
   indicatorCode: string,
@@ -15,23 +15,55 @@ export async function fetchIndicatorData(
   endYear: number,
   useOffline: boolean = true
 ): Promise<IndicatorData[]> {
+  const results: IndicatorData[] = [];
+
   if (useOffline) {
-    // TODO: In the future, we will load a static JSON file stored in public/ or a local database.
-    // For now, we fallback to the API gracefully.
-    console.warn("Offline dataset not yet populated. Falling back to World Bank REST API.");
+    try {
+      // Dynamically load the static JSON datastore at runtime.
+      // Using dynamic import prevents massive bundle loading times.
+      const localCache = (await import('../data/world-development-indicators-grouped.json')).default as any;
+
+      if (localCache && localCache[indicatorCode]) {
+        const indicatorData = localCache[indicatorCode].data;
+
+        for (const code of countryCodes) {
+          const countryTimeline = indicatorData[code];
+
+          if (countryTimeline) {
+            for (let y = startYear; y <= endYear; y++) {
+              const val = countryTimeline[y.toString()];
+              // If the year is recorded (even if null), push it formally
+              if (val !== undefined) {
+                results.push({
+                  countryCode: code,
+                  year: y,
+                  value: val
+                });
+              }
+            }
+          }
+        }
+
+        // If the static datastore perfectly fulfilled the required data vectors, return instantly!
+        if (results.length > 0) {
+          return results;
+        }
+      }
+    } catch (error) {
+      console.warn("Offline dataset not found or failed to load. Falling back to World Bank REST API.", error);
+    }
   }
 
-  // World Bank API format: http://api.worldbank.org/v2/country/{countryCodes}/indicator/{indicatorCode}?date={startYear}:{endYear}&format=json&per_page=1000
-  // countryCodes should be separated by a semicolon
+  // Fallback gracefully back to World Bank REST API if cache completely misses
   const countryString = countryCodes.join(";");
   const url = `https://api.worldbank.org/v2/country/${countryString}/indicator/${indicatorCode}?date=${startYear}:${endYear}&format=json&per_page=1000`;
-  
+
   try {
     const response = await fetch(url, { next: { revalidate: 86400 } }); // Cache for 24 hours
     if (!response.ok) throw new Error("Failed to fetch from World Bank API");
-    
+
     const data = await response.json();
-    
+
     // The World Bank API returns an array where the second element contains the actual data
     if (!data || !data[1]) return [];
 

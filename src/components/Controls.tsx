@@ -24,17 +24,34 @@ export function Controls({ initialIndicator, initialCountries, initialStart, ini
     { code: "CHN", name: "China" },
     { code: "USA", name: "United States" },
     { code: "GBR", name: "United Kingdom" },
+    { code: "DEU", name: "Germany" },
     { code: "JPN", name: "Japan" },
-    { code: "RUS", name: "Russia" },
+    { code: "FRA", name: "France" },
+    { code: "ITA", name: "Italy" },
+    { code: "RUS", name: "Russian Federation" },
+    { code: "CAN", name: "Canada" },
+    { code: "AUS", name: "Australia" },
+    { code: "BGD", name: "Bangladesh" },
+    { code: "PAK", name: "Pakistan" },
   ];
 
   const handleCountryToggle = (code: string) => {
-    const currentList = countries.split(",").filter(Boolean);
+    let currentList = countries.split(",").filter(Boolean);
     if (currentList.includes(code)) {
-      setCountries(currentList.filter(c => c !== code).join(","));
+      currentList = currentList.filter(c => c !== code);
+      // Optionally gracefully remove tied SARs if China is fully unselected
+      if (code === "CHN") {
+        currentList = currentList.filter(c => c !== "MAC" && c !== "HKG");
+      }
     } else {
-      setCountries([...currentList, code].join(","));
+      currentList.push(code);
+      // Automatically inject Special Administrative Regions when China is enabled for composite tracking
+      if (code === "CHN") {
+        if (!currentList.includes("MAC")) currentList.push("MAC");
+        if (!currentList.includes("HKG")) currentList.push("HKG");
+      }
     }
+    setCountries(currentList.join(","));
   };
 
   return (
@@ -45,7 +62,7 @@ export function Controls({ initialIndicator, initialCountries, initialStart, ini
           <SelectTrigger className="w-full bg-background">
             <SelectValue placeholder="Select Indicator" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="w-full bg-background">
             {INDICATORS.map(ind => (
               <SelectItem key={ind.id} value={ind.id}>
                 {ind.name}
@@ -82,16 +99,16 @@ export function Controls({ initialIndicator, initialCountries, initialStart, ini
       <div className="flex flex-col gap-2">
         <label className="text-sm font-semibold text-foreground">Time Range</label>
         <div className="flex items-center gap-2">
-          <input 
-            type="number" 
+          <input
+            type="number"
             value={startYear}
             onChange={(e) => setStartYear(e.target.value)}
             className="w-full flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             min="1950" max="2025"
           />
           <span className="text-muted-foreground text-sm">to</span>
-          <input 
-            type="number" 
+          <input
+            type="number"
             value={endYear}
             onChange={(e) => setEndYear(e.target.value)}
             className="w-full flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"

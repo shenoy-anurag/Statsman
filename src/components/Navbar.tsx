@@ -14,10 +14,10 @@ export function Navbar() {
             Statsman
           </span>
         </Link>
-        
+
         <nav className="flex items-center gap-3 md:gap-4 text-sm font-medium">
           <ThemeToggle />
-          
+
           <Link
             href="https://github.com/shenoy-anurag/statsman"
             target="_blank"
