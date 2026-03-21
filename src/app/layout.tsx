@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Libre_Baskerville, Recursive, Roboto, IBM_Plex_Mono } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,6 +13,32 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const libreBaskerville = Libre_Baskerville({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-libre-baskerville",
+  subsets: ["latin"],
+});
+
+const recursive = Recursive({
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-recursive",
+  subsets: ["latin"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+});
+
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  style: ["normal", "italic"],
+  variable: "--font-roboto",
   subsets: ["latin"],
 });
 
@@ -27,11 +55,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${libreBaskerville.variable} ${recursive.variable} ${roboto.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className={`${recursive.className} min-h-full flex flex-col bg-background text-foreground`} style={{ "--font-future": "'Future', 'Futura', sans-serif" } as React.CSSProperties}>
         <NuqsAdapter>
-          <TooltipProvider>{children}</TooltipProvider>
+          <TooltipProvider>
+            <Navbar />
+            <div className="flex-1 w-full flex flex-col">
+              {children}
+            </div>
+            <Footer />
+          </TooltipProvider>
         </NuqsAdapter>
       </body>
     </html>

@@ -15,3 +15,6 @@
 - [x] Phase 3: Analytics & Frontpage
   - [x] Setup database for tracking searches/views
   - [x] Build trending frontpage UI
+- [x] Phase 4: Global UI Components
+  - [x] Build sleek navigation bar with GitHub/Support links
+  - [x] Build minimal site footer

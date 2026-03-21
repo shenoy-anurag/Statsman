@@ -8,7 +8,7 @@ import { TrendingComparisons } from "@/components/Trending";
 // Next.js 15: searchParams is a Promise for Server Components
 export default async function Home(props: { searchParams: Promise<{ indicator?: string, countries?: string, start?: string, end?: string }> }) {
   const searchParams = await props.searchParams;
-  
+
   // Parse parameters
   const indicatorCode = searchParams.indicator || "SP.POP.TOTL"; // Default: Population
   const countriesParam = searchParams.countries || "IND,CHN,USA";
@@ -16,7 +16,7 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
   const endYear = parseInt(searchParams.end || new Date().getFullYear().toString(), 10);
 
   const countryCodes = countriesParam.split(",").filter(Boolean);
-  
+
   const data = await getMergedChartData(indicatorCode, countryCodes, startYear, endYear);
   const indicatorConfig = INDICATORS_MAP[indicatorCode];
 
@@ -27,26 +27,18 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
 
   return (
     <main className="min-h-screen bg-background text-foreground p-6 md:p-12 xl:p-16 w-full mx-auto flex flex-col gap-8 md:gap-12 transition-all">
-      <header className="flex flex-col gap-3 animate-in fade-in slide-in-from-top-4 duration-700">
-        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl bg-clip-text text-transparent bg-gradient-to-br from-primary via-primary/80 to-primary/40 pb-1">
-          Statsman
-        </h1>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-3xl font-medium leading-normal">
-          Explore socio-economic indicators dynamically overlaid with political leadership eras. Understand how nations performed under different rulers.
-        </p>
-      </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
         <aside className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-8 flex flex-col gap-6">
           <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5 shadow-sm">
-             <Controls 
-              initialIndicator={indicatorCode} 
-              initialCountries={countriesParam} 
-              initialStart={startYear} 
-              initialEnd={endYear} 
+            <Controls
+              initialIndicator={indicatorCode}
+              initialCountries={countriesParam}
+              initialStart={startYear}
+              initialEnd={endYear}
             />
           </div>
-          
+
           <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5 shadow-sm mt-0 lg:mt-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
             <TrendingComparisons />
           </div>
@@ -54,19 +46,19 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
 
         <section className="lg:col-span-8 xl:col-span-9 flex flex-col gap-6 w-full min-w-0">
           <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-sm min-h-[500px] animate-in fade-in slide-in-from-right-8 duration-700 delay-150 fill-mode-both w-full overflow-hidden">
-             {countryCodes.length > 0 ? (
-                <IndicatorChart 
-                  data={data} 
-                  countryCodes={countryCodes} 
-                  indicatorName={indicatorConfig?.name || indicatorCode} 
-                />
-             ) : (
-                <div className="w-full h-[500px] flex items-center justify-center text-muted-foreground font-medium">
-                  Select at least one country to compare.
-                </div>
-             )}
+            {countryCodes.length > 0 ? (
+              <IndicatorChart
+                data={data}
+                countryCodes={countryCodes}
+                indicatorName={indicatorConfig?.name || indicatorCode}
+              />
+            ) : (
+              <div className="w-full h-[500px] flex items-center justify-center text-muted-foreground font-medium">
+                Select at least one country to compare.
+              </div>
+            )}
           </div>
-          
+
           {indicatorConfig?.caveat && (
             <div className="bg-muted/30 border border-muted/60 p-5 rounded-xl flex items-start gap-4 animate-in fade-in duration-700 delay-300 fill-mode-both relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>

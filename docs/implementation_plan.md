@@ -37,6 +37,10 @@ Create a highly interactive and stunning web application to visualize economic a
 - Set up the database to record anonymous searches and chart views.
 - Create the trending algorithm to surface popular indicators on the landing page.
 
+#### Phase 4: Global UI Components
+- Develop a global navigation bar with branding, GitHub repository link, and support link.
+- Develop a global site footer with copyright, About page, and relevant source links.
+
 ## Verification Plan
 
 ### Automated Tests
