@@ -37,14 +37,19 @@ export default async function DashboardHome() {
         </p>
       </div>
 
-      <div className="w-full flex-col flex items-start gap-4">
-        <h3 className="text-xl font-bold tracking-tight mb-4">{topChartIndicatorName} - {topChartCountryName}</h3>
-        <IndicatorChart
-          data={topChartData}
-          countryCodes={topChartCountries}
-          indicatorName={topChartIndicatorCode}
-        />
-      </div>
+      <Link
+        key="main-chart"
+        href={`/explore?indicator=${topChartIndicatorCode}&countries=${topChartCountries.join(",")}`}
+      >
+        <div className="w-full flex-col flex items-start gap-4">
+          <h2 className="text-xl font-bold tracking-tight">{topChartIndicatorName} - {topChartCountryName}</h2>
+          <IndicatorChart
+            data={topChartData}
+            countryCodes={topChartCountries}
+            indicatorName={topChartIndicatorCode}
+          />
+        </div>
+      </Link>
 
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full">
         {chartsData.map((item, index) => {
