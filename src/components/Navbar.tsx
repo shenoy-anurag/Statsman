@@ -18,12 +18,12 @@ export function Navbar() {
             </span>
           </Link>
 
-          <Separator orientation="vertical" className="h-6 w-px bg-border/80 ml-2 self-center" />
+          <Separator orientation="vertical" className="h-6 w-px bg-border bg-muted-foreground/25 ml-2 self-center" />
 
           <div className="flex h-full items-stretch gap-0">
             <Link
               href="/explore"
-              className="flex items-center px-4 h-full gap-2 font-semibold text-muted-foreground hover:text-foreground rounded-none bg-background/50 hover:bg-muted/70 transition-colors"
+              className="flex items-center px-4 h-full gap-2 font-semibold text-muted-foreground hover:text-foreground rounded-none hover:bg-muted/70 transition-colors"
             >
               <span className="hidden xl:inline-block">Explore Data</span>
               <span className="xl:hidden">Explore</span>
@@ -31,7 +31,7 @@ export function Navbar() {
 
             <Link
               href="/india"
-              className="flex items-center px-4 h-full gap-2 font-semibold text-muted-foreground hover:text-foreground rounded-none bg-background/50 hover:bg-muted/70 transition-colors"
+              className="flex items-center px-4 h-full gap-2 font-semibold text-muted-foreground hover:text-foreground rounded-none hover:bg-muted/70 transition-colors"
             >
               <SvgIcon className="h-5 w-5" icon={"IndiaFlag"} />
               <span className="hidden sm:inline-block">India</span>

@@ -69,7 +69,7 @@ export default function RootLayout({
           <NuqsAdapter>
             <TooltipProvider>
               <Navbar />
-              <div className="flex-1 w-full flex flex-col">
+              <div className={`flex-1 w-full flex flex-col`}>
                 {children}
               </div>
               <Footer />
