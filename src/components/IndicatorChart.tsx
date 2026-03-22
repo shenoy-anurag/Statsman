@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/chart";
 import { MergedDataPoint } from "@/lib/data-merger";
 import { PoliticalEra } from "@/lib/political-data";
+import { PaperTexture } from "@/components/PaperTexture";
 
 interface IndicatorChartProps {
   data: MergedDataPoint[];
@@ -45,7 +46,8 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
   const CustomTooltipContent = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-background border rounded-lg p-3 shadow-lg flex flex-col gap-3 min-w-[240px]">
+        <div className="bg-background border rounded-none p-3 shadow-lg flex flex-col gap-3 min-w-[240px]">
+          <PaperTexture />
           <p className="font-semibold text-foreground border-b pb-2 mb-1">{label}</p>
           {payload
             .filter((entry: any, index: number, self: any[]) => index === self.findIndex(t => t.dataKey === entry.dataKey))
@@ -95,13 +97,13 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
                     </span>
                   </div>
                   {era ? (
-                    <div className="text-xs text-muted-foreground bg-muted p-2 rounded-md mt-1 flex flex-col gap-0.5">
+                    <div className="text-xs text-muted-foreground bg-muted p-2 rounded-none mt-1 flex flex-col gap-0.5">
                       <span className="block font-medium text-foreground text-sm">{era.leader}</span>
                       <span className="block">{era.party}</span>
-                      <div className="w-full h-1 mt-1 rounded-full opacity-70" style={{ backgroundColor: era.color }}></div>
+                      <div className="w-full h-1 mt-1 rounded-none opacity-70" style={{ backgroundColor: era.color }}></div>
                     </div>
                   ) : (
-                    <div className="text-xs text-muted-foreground bg-muted/50 p-2 rounded-md mt-1 border border-dashed">
+                    <div className="text-xs text-muted-foreground bg-muted/50 p-2 rounded-none mt-1 border border-dashed">
                       Unknown Leader Data
                     </div>
                   )}
@@ -117,75 +119,78 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
   return (
     <div className="w-full flex-col flex items-start gap-4">
       {/* <h3 className="text-xl font-bold tracking-tight">{indicatorName}</h3> */}
-      <ChartContainer config={chartConfig} className="h-[500px] w-full bg-card rounded-xl border p-4">
-        <AreaChart accessibilityLayer data={data} margin={{ left: 16, right: 16, top: 16, bottom: 16 }}>
-          <defs>
-            {countryCodes.map(code =>
-              generateEraGradient({
-                countryCode: code,
-                minYear,
-                maxYear,
-                opacity: countriesToOverlay.length > 1 ? 0.08 : 0.18,
-                enabled: countriesToOverlay.includes(code)
-              })
-            )}
-          </defs>
-          <CartesianGrid vertical={false} opacity={0.3} />
-          <XAxis
-            dataKey="year"
-            tickLine={false}
-            axisLine={false}
-            tickMargin={12}
-            minTickGap={32}
-          />
-          <YAxis
-            tickLine={false}
-            axisLine={false}
-            tickMargin={12}
-            width={80}
-            tickFormatter={(value) => {
-              if (value >= 1e9) return (value / 1e9).toFixed(1) + 'B';
-              if (value >= 1e6) return (value / 1e6).toFixed(1) + 'M';
-              if (value >= 1e3) return (value / 1e3).toFixed(1) + 'K';
-              return value.toLocaleString();
-            }}
-          />
-          <ChartTooltip cursor={{ stroke: "hsl(var(--muted-foreground))", strokeWidth: 1, strokeDasharray: "4 4" }} content={<CustomTooltipContent />} />
-
-          {/* Continuous background areas with dashed interpolation linking data gaps */}
-          {countryCodes.map((code) => (
-            <Area
-              key={`bg-${code}`}
-              dataKey={code}
-              type="monotone"
-              connectNulls={true}
-              fill={`url(#era-gradient-${code})`}
-              stroke={`var(--color-${code})`}
-              strokeWidth={3}
-              strokeDasharray="6 8"
-              fillOpacity={1}
-              dot={false}
-              activeDot={false}
+      <div className="h-[500px] w-full bg-card rounded-none border p-4 relative overflow-hidden">
+        <PaperTexture />
+        <ChartContainer config={chartConfig} className="h-full w-full aspect-auto">
+          <AreaChart accessibilityLayer data={data} margin={{ left: 16, right: 16, top: 16, bottom: 16 }}>
+            <defs>
+              {countryCodes.map(code =>
+                generateEraGradient({
+                  countryCode: code,
+                  minYear,
+                  maxYear,
+                  opacity: countriesToOverlay.length > 1 ? 0.08 : 0.18,
+                  enabled: countriesToOverlay.includes(code)
+                })
+              )}
+            </defs>
+            <CartesianGrid vertical={false} opacity={0.3} />
+            <XAxis
+              dataKey="year"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={12}
+              minTickGap={32}
             />
-          ))}
-
-          {/* Solid foreground lines overlapping and bounding only contiguous data points */}
-          {countryCodes.map((code) => (
-            <Area
-              key={`fg-${code}`}
-              dataKey={code}
-              type="monotone"
-              connectNulls={false}
-              fill="transparent"
-              stroke={`var(--color-${code})`}
-              strokeWidth={3}
-              fillOpacity={0}
-              dot={false}
-              activeDot={{ r: 6, strokeWidth: 0 }}
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              tickMargin={12}
+              width={80}
+              tickFormatter={(value) => {
+                if (value >= 1e9) return (value / 1e9).toFixed(1) + 'B';
+                if (value >= 1e6) return (value / 1e6).toFixed(1) + 'M';
+                if (value >= 1e3) return (value / 1e3).toFixed(1) + 'K';
+                return value.toLocaleString();
+              }}
             />
-          ))}
-        </AreaChart>
-      </ChartContainer>
+            <ChartTooltip cursor={{ stroke: "hsl(var(--muted-foreground))", strokeWidth: 1, strokeDasharray: "4 4" }} content={<CustomTooltipContent />} />
+
+            {/* Continuous background areas with dashed interpolation linking data gaps */}
+            {countryCodes.map((code) => (
+              <Area
+                key={`bg-${code}`}
+                dataKey={code}
+                type="monotone"
+                connectNulls={true}
+                fill={`url(#era-gradient-${code})`}
+                stroke={`var(--color-${code})`}
+                strokeWidth={3}
+                strokeDasharray="6 8"
+                fillOpacity={1}
+                dot={false}
+                activeDot={false}
+              />
+            ))}
+
+            {/* Solid foreground lines overlapping and bounding only contiguous data points */}
+            {countryCodes.map((code) => (
+              <Area
+                key={`fg-${code}`}
+                dataKey={code}
+                type="monotone"
+                connectNulls={false}
+                fill="transparent"
+                stroke={`var(--color-${code})`}
+                strokeWidth={3}
+                fillOpacity={0}
+                dot={false}
+                activeDot={{ r: 6, strokeWidth: 0 }}
+              />
+            ))}
+          </AreaChart>
+        </ChartContainer>
+      </div>
     </div>
   );
 }

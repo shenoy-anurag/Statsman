@@ -2,6 +2,7 @@ import { IndicatorChart } from "@/components/IndicatorChart";
 import { getMergedChartData } from "@/lib/data-merger";
 import { INDICATORS_MAP, TOP_INDICATORS } from "@/constants/indicators";
 import Link from "next/link";
+import { PaperTexture } from "@/components/PaperTexture";
 
 export default async function DashboardHome() {
   const countryCodes = ["IND", "CHN", "USA"];
@@ -62,9 +63,10 @@ export default async function DashboardHome() {
               className="group block"
             >
               <div
-                className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col"
+                className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:bg-card/60 transition-all flex flex-col"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
+                <PaperTexture />
                 <div className="mb-4 flex items-center justify-between">
                   <h2 className="text-xl font-semibold group-hover:text-primary transition-colors">
                     {item.config.name}

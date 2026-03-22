@@ -4,6 +4,7 @@ import { getMergedChartData } from "@/lib/data-merger";
 import { INDICATORS_MAP } from "@/constants/indicators";
 import { trackView } from "@/lib/analytics";
 import { TrendingComparisons } from "@/components/Trending";
+import { PaperTexture } from "@/components/PaperTexture";
 
 // Next.js 15: searchParams is a Promise for Server Components
 export default async function Home(props: { searchParams: Promise<{ indicator?: string, countries?: string, start?: string, end?: string }> }) {
@@ -30,7 +31,7 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
         <aside className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-8 flex flex-col gap-6">
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5">
+          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-none p-5">
             <Controls
               initialIndicator={indicatorCode}
               initialCountries={countriesParam}
@@ -39,13 +40,14 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
             />
           </div>
 
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-5 mt-0 lg:mt-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
+          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-none p-5 mt-0 lg:mt-6 animate-in fade-in slide-in-from-bottom-6 duration-500 delay-300">
             <TrendingComparisons />
           </div>
         </aside>
 
         <section className="lg:col-span-8 xl:col-span-9 flex flex-col gap-6 w-full min-w-0">
-          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-6 min-h-[500px] animate-in fade-in slide-in-from-right-8 duration-700 delay-150 fill-mode-both w-full overflow-hidden">
+          <div className="bg-card/40 backdrop-blur-md border border-border/50 rounded-none p-6 min-h-[500px] animate-in fade-in slide-in-from-right-8 duration-500 delay-150 fill-mode-both w-full overflow-hidden">
+            <PaperTexture />
             <h3 className="text-xl font-bold tracking-tight mb-4">{indicatorConfig?.name || indicatorCode}</h3>
             {countryCodes.length > 0 ? (
               <IndicatorChart
@@ -61,7 +63,7 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
           </div>
 
           {indicatorConfig?.caveat && (
-            <div className="bg-muted/30 border border-muted/60 p-5 rounded-xl flex items-start gap-4 animate-in fade-in duration-700 delay-300 fill-mode-both relative overflow-hidden group">
+            <div className="bg-muted/30 border border-muted/60 p-5 rounded-none flex items-start gap-4 animate-in fade-in duration-500 delay-300 fill-mode-both relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <span className="text-2xl mt-0.5 relative z-10">💡</span>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
@@ -72,7 +74,7 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
           )}
 
           {/* {countryCodes.includes("CHN") && (
-            <div className="bg-muted/30 border border-muted/60 p-5 rounded-xl flex items-start gap-4 animate-in fade-in duration-700 delay-500 fill-mode-both relative overflow-hidden group">
+            <div className="bg-muted/30 border border-muted/60 p-5 rounded-none flex items-start gap-4 animate-in fade-in duration-700 delay-500 fill-mode-both relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <span className="text-2xl mt-0.5 relative z-10">🇨🇳</span>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
