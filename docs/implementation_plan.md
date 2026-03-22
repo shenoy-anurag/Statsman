@@ -51,6 +51,11 @@ Create a highly interactive and stunning web application to visualize economic a
 - Create a new root dashboard (`/`) displaying a 5x2 grid of the 10 most critical indicators for major structural economies (India, China, USA).
 - Wrap each mini-chart in a smooth programmatic link to seamlessly transition into the interactive `/explore` view.
 
+#### Phase 7: Localization & Custom Dashboards
+- Create a dedicated dashboard `/india` that focuses entirely on India's specific structural and economic metrics.
+- Build a curated list of upcoming indicators (Inflation, Entrepreneurship, Renewable Energy, Railway Electrification).
+- Implement custom SVG component system for icons (e.g., India Flag, GitHub, Buy Me a Coffee) to replace external dependencies or generic icons in the global Navigation Bar.
+
 
 ## Verification Plan
 
