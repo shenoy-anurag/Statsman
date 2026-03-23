@@ -48,6 +48,8 @@ export default async function DashboardHome() {
             data={topChartData}
             countryCodes={topChartCountries}
             indicatorName={topChartIndicatorCode}
+            startYear={startYear}
+            endYear={endYear}
           />
         </div>
       </Link>
@@ -63,7 +65,7 @@ export default async function DashboardHome() {
               className="group block"
             >
               <div
-                className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:bg-card/60 transition-all flex flex-col"
+                className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col border border-transparent"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <PaperTexture />
@@ -80,6 +82,8 @@ export default async function DashboardHome() {
                     data={item.data}
                     countryCodes={countryCodes}
                     indicatorName={item.config.name}
+                    startYear={startYear}
+                    endYear={endYear}
                   />
                 </div>
               </div>

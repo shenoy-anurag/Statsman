@@ -17,9 +17,11 @@ interface IndicatorChartProps {
   countryCodes: string[];
   indicatorName: string;
   overlayEras?: string[]; // Optionally specify exactly which countries should overlay backgrounds
+  startYear?: number;
+  endYear?: number;
 }
 
-export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras }: IndicatorChartProps) {
+export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras, startYear, endYear }: IndicatorChartProps) {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -31,8 +33,9 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  const minYear = data.length > 0 ? data[0].year : 1900;
-  const maxYear = data.length > 0 ? data[data.length - 1].year : 2025;
+  // Use props if provided, otherwise derive from data
+  const minYear = startYear ?? (data.length > 0 ? data[0].year : 1900);
+  const maxYear = endYear ?? (data.length > 0 ? data[data.length - 1].year : 2025);
   const countriesToOverlay = overlayEras || (countryCodes.length === 1 ? countryCodes : []);
   // Dynamically create a configuration for shadcn chart based on selected countries
   const chartConfig = useMemo(() => {
@@ -136,6 +139,7 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
 
               let formattedValue = "No Data";
               if (value !== null && value !== undefined) {
+                const fractionDigits = isSmallScreen ? 0 : 1;
                 const absValue = Math.abs(value);
                 const sign = value < 0 ? '-' : '';
                 formattedValue = value.toLocaleString(undefined, { maximumFractionDigits: 2 });
@@ -189,15 +193,22 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
         <ChartContainer config={chartConfig} className="h-full w-full aspect-auto">
           <AreaChart accessibilityLayer data={data} margin={{ left: 16, right: 16, top: 16, bottom: 16 }}>
             <defs>
-              {countryCodes.map(code =>
-                generateEraGradient({
+              {countryCodes.map(code => {
+                // Find the first and last valid years for this country's data points
+                // This is crucial because standard SVG gradients map x1=0, x2=1 to the Area's bounding box.
+                // If a country has missing data at start/end, its Area box is narrower than the chart width.
+                const validDataPoints = data.filter(d => d[code] !== null && d[code] !== undefined);
+                const firstYear = validDataPoints.length > 0 ? validDataPoints[0].year : minYear;
+                const lastYear = validDataPoints.length > 0 ? validDataPoints[validDataPoints.length - 1].year : maxYear;
+
+                return generateEraGradient({
                   countryCode: code,
-                  minYear,
-                  maxYear,
+                  minYear: firstYear,
+                  maxYear: lastYear,
                   opacity: countriesToOverlay.length > 1 ? 0.08 : 0.3,
                   enabled: countriesToOverlay.includes(code)
-                })
-              )}
+                });
+              })}
             </defs>
             <CartesianGrid vertical={false} opacity={0.3} />
             <XAxis
@@ -206,6 +217,7 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras 
               axisLine={false}
               tickMargin={12}
               minTickGap={32}
+              domain={[minYear, maxYear]}
             />
             <YAxis
               tickLine={false}

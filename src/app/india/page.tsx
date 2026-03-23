@@ -1,9 +1,12 @@
+import Link from "next/link";
 import { IndicatorChart } from "@/components/IndicatorChart";
-import { getMergedChartData } from "@/lib/data-merger";
+import { getMergedChartData, MergedDataPoint } from "@/lib/data-merger";
 import { INDICATORS_MAP } from "@/constants/indicators";
-import { RocketIcon, TrainIcon, SunIcon, ChartSplineIcon } from "lucide-react";
+import { TrainIcon, SunIcon, ChartSplineIcon, ArrowUpRight } from "lucide-react";
 import SvgIcon from "@/components/icons/svg-icon";
 import { PaperTexture } from "@/components/PaperTexture";
+import startupDataRaw from "@/data/india-startup-yearwise-count.json";
+import { getPoliticalEra } from "@/lib/political-data";
 
 export default async function IndiaDashboard() {
   const countryCodes = ["IND"];
@@ -28,6 +31,29 @@ export default async function IndiaDashboard() {
     })
   );
 
+  // Process Startup Data
+  const formattedStartupData: MergedDataPoint[] = (startupDataRaw as any[]).map(item => {
+    const year = item.Year;
+    const era = getPoliticalEra("IND", year);
+    const point: MergedDataPoint = {
+      year,
+      "IND": item.Count
+    };
+    if (era) {
+      point["IND_era"] = era;
+    }
+    return point;
+  });
+
+  const allCharts = [
+    ...chartsData,
+    {
+      indicatorCode: "STARTUP_COUNT",
+      config: { name: "Recognized Startups (DPIIT)" },
+      data: formattedStartupData
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-background text-foreground p-6 md:p-12 xl:p-16 w-full mx-auto flex flex-col gap-8 md:gap-12 transition-all">
       <div className="flex flex-col gap-4 max-w-4xl animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -41,27 +67,61 @@ export default async function IndiaDashboard() {
       </div>
 
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full">
+        {/* Special Startup Chart - Self-managed bounds */}
+        <Link
+          href="/india/startups"
+          className="flex flex-col h-full group/link"
+        >
+          <div
+            className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col group/chart overflow-hidden relative border border-transparent"
+          >
+            <PaperTexture />
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-xl font-semibold group-hover/link:text-primary transition-colors tracking-tight">Recognized Startups (DPIIT)</h2>
+              <ArrowUpRight className="h-5 w-5 opacity-0 group-hover/chart:opacity-100 group-hover/chart:translate-x-1 group-hover/chart:-translate-y-1 transition-all text-primary" />
+            </div>
+            <div className="w-full flex-grow relative min-h-[300px]">
+              <IndicatorChart
+                data={formattedStartupData}
+                countryCodes={countryCodes}
+                indicatorName="Recognized Startups (DPIIT)"
+                startYear={2016}
+                endYear={2025}
+              />
+            </div>
+          </div>
+        </Link>
+
+        {/* Standard World Bank Indicators */}
         {chartsData.map((item, index) => {
           if (!item.config || !item.data || item.data.length === 0) return null;
 
           return (
-            <div
+            <Link
               key={item.indicatorCode}
-              className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col"
-              style={{ animationDelay: `${index * 100}ms` }}
+              href={`/explore?indicator=${item.indicatorCode}&countries=IND`}
+              className="flex flex-col h-full group/link"
             >
-              <PaperTexture />
-              <div className="mb-4">
-                <h2 className="text-xl font-semibold">{item.config.name}</h2>
+              <div
+                className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col group/chart overflow-hidden relative border border-transparent"
+                style={{ animationDelay: `${(index + 1) * 100}ms` }}
+              >
+                <PaperTexture />
+                <div className="mb-4 flex items-center justify-between">
+                  <h2 className="text-xl font-semibold group-hover/link:text-primary transition-colors tracking-tight">{item.config.name}</h2>
+                  <ArrowUpRight className="h-5 w-5 opacity-0 group-hover/chart:opacity-100 group-hover/chart:translate-x-1 group-hover/chart:-translate-y-1 transition-all text-primary" />
+                </div>
+                <div className="w-full flex-grow relative min-h-[300px]">
+                  <IndicatorChart
+                    data={item.data}
+                    countryCodes={countryCodes}
+                    indicatorName={item.config.name}
+                    startYear={startYear}
+                    endYear={endYear}
+                  />
+                </div>
               </div>
-              <div className="w-full flex-grow relative min-h-[300px]">
-                <IndicatorChart
-                  data={item.data}
-                  countryCodes={countryCodes}
-                  indicatorName={item.config.name}
-                />
-              </div>
-            </div>
+            </Link>
           );
         })}
       </section>
@@ -78,10 +138,6 @@ export default async function IndiaDashboard() {
             <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
               <span className="text-2xl"><ChartSplineIcon /></span>
               <span className="font-medium">Inflation Rate & Price Indices</span>
-            </div>
-            <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
-              <span className="text-2xl"><RocketIcon /></span>
-              <span className="font-medium">Entrepreneurship Data</span>
             </div>
             <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
               <span className="text-2xl"><SunIcon /></span>

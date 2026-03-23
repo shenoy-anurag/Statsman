@@ -54,6 +54,8 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
                 data={data}
                 countryCodes={countryCodes}
                 indicatorName={indicatorConfig?.name || indicatorCode}
+                startYear={startYear}
+                endYear={endYear}
               />
             ) : (
               <div className="w-full h-[500px] flex items-center justify-center text-muted-foreground font-medium">

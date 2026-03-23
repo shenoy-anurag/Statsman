@@ -12,11 +12,6 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 const libreBaskerville = Libre_Baskerville({
   weight: ["400", "700"],
   style: ["normal", "italic"],
@@ -27,12 +22,6 @@ const libreBaskerville = Libre_Baskerville({
 const recursive = Recursive({
   weight: ["300", "400", "500", "700", "900"],
   variable: "--font-recursive",
-  subsets: ["latin"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
 });
 
@@ -56,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${libreBaskerville.variable} ${recursive.variable} ${roboto.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${libreBaskerville.variable} ${recursive.variable} ${roboto.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className={`${recursive.className} min-h-full flex flex-col bg-background text-foreground`} style={{ "--font-future": "'Future', 'Futura', sans-serif" } as React.CSSProperties}>
