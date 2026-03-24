@@ -23,7 +23,6 @@ const chartConfig = {
   },
   trkm: {
     label: "Total Route Kilometers",
-    // color: "var(--color-blue-slate-2-700)",
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig;
