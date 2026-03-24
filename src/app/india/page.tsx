@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { IndicatorChart } from "@/components/IndicatorChart";
+import { RailwayElectrificationChart } from "@/components/RailwayElectrificationChart";
 import { getMergedChartData, MergedDataPoint } from "@/lib/data-merger";
 import { INDICATORS_MAP } from "@/constants/indicators";
 import { TrainIcon, SunIcon, ChartSplineIcon, ArrowUpRight } from "lucide-react";
@@ -45,15 +46,6 @@ export default async function IndiaDashboard() {
     return point;
   });
 
-  const allCharts = [
-    ...chartsData,
-    {
-      indicatorCode: "STARTUP_COUNT",
-      config: { name: "Recognized Startups (DPIIT)" },
-      data: formattedStartupData
-    }
-  ];
-
   return (
     <main className="min-h-screen bg-background text-foreground p-6 md:p-12 xl:p-16 w-full mx-auto flex flex-col gap-8 md:gap-12 transition-all">
       <div className="flex flex-col gap-4 max-w-4xl animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -62,7 +54,7 @@ export default async function IndiaDashboard() {
           India Dashboard
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed">
-          A dedicated view for India's socio-economic metrics. I'll be curating more granular data including inflation rate, entrepreneurship data, renewable energy capacity, and railway electrification.
+          A dedicated view for India's socio-economic metrics. I am curating granular data including industrial growth, railway electrification, and renewable energy capacity.
         </p>
       </div>
 
@@ -92,6 +84,26 @@ export default async function IndiaDashboard() {
           </div>
         </Link>
 
+        {/* Specialized Railway Electrification Chart */}
+        <Link
+          href="/india/railways"
+          className="flex flex-col h-full group/link"
+        >
+          <div
+            className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col group/chart overflow-hidden relative border border-transparent"
+            style={{ animationDelay: "100ms" }}
+          >
+            <PaperTexture />
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-xl font-semibold group-hover/link:text-primary transition-colors tracking-tight">Railway Electrification</h2>
+              <ArrowUpRight className="h-5 w-5 opacity-0 group-hover/chart:opacity-100 group-hover/chart:translate-x-1 group-hover/chart:-translate-y-1 transition-all text-primary" />
+            </div>
+            <div className="w-full flex-grow relative min-h-[300px]">
+              <RailwayElectrificationChart />
+            </div>
+          </div>
+        </Link>
+
         {/* Standard World Bank Indicators */}
         {chartsData.map((item, index) => {
           if (!item.config || !item.data || item.data.length === 0) return null;
@@ -104,7 +116,7 @@ export default async function IndiaDashboard() {
             >
               <div
                 className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col group/chart overflow-hidden relative border border-transparent"
-                style={{ animationDelay: `${(index + 1) * 100}ms` }}
+                style={{ animationDelay: `${(index + 2) * 100}ms` }}
               >
                 <PaperTexture />
                 <div className="mb-4 flex items-center justify-between">
@@ -142,10 +154,6 @@ export default async function IndiaDashboard() {
             <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
               <span className="text-2xl"><SunIcon /></span>
               <span className="font-medium">Renewable Energy Capacity</span>
-            </div>
-            <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
-              <span className="text-2xl"><TrainIcon /></span>
-              <span className="font-medium">Railway Electrification</span>
             </div>
           </div>
         </div>

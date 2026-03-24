@@ -1,0 +1,373 @@
+[
+  {
+    "FY": 1971,
+    "RKM Electrified Cumulative": 3706,
+    "Total Route Kms": 59790,
+    "Total Track Kms": 98546,
+    "Electrification %": 0.06198360929921391
+  },
+  {
+    "FY": 1972,
+    "RKM Electrified Cumulative": 3953,
+    "Total Route Kms": 60067,
+    "Total Track Kms": 99807,
+    "Electrification %": 0.06580984567233256
+  },
+  {
+    "FY": 1973,
+    "RKM Electrified Cumulative": 4055,
+    "Total Route Kms": 60149,
+    "Total Track Kms": 100578,
+    "Electrification %": 0.06741591713910455
+  },
+  {
+    "FY": 1974,
+    "RKM Electrified Cumulative": 4191,
+    "Total Route Kms": 60234,
+    "Total Track Kms": 101028,
+    "Electrification %": 0.06957864329116446
+  },
+  {
+    "FY": 1975,
+    "RKM Electrified Cumulative": 4397,
+    "Total Route Kms": 60301,
+    "Total Track Kms": 101395,
+    "Electrification %": 0.07291753038921411
+  },
+  {
+    "FY": 1976,
+    "RKM Electrified Cumulative": 4649,
+    "Total Route Kms": 60216,
+    "Total Track Kms": 101990,
+    "Electrification %": 0.07720539391523848
+  },
+  {
+    "FY": 1977,
+    "RKM Electrified Cumulative": 4720,
+    "Total Route Kms": 60666,
+    "Total Track Kms": 102837,
+    "Electrification %": 0.07780305278079978
+  },
+  {
+    "FY": 1978,
+    "RKM Electrified Cumulative": 4720,
+    "Total Route Kms": 60693,
+    "Total Track Kms": 103325,
+    "Electrification %": 0.07776844117114
+  },
+  {
+    "FY": 1979,
+    "RKM Electrified Cumulative": 4723,
+    "Total Route Kms": 60777,
+    "Total Track Kms": 103587,
+    "Electrification %": 0.07771031804794577
+  },
+  {
+    "FY": 1980,
+    "RKM Electrified Cumulative": 4820,
+    "Total Route Kms": 60933,
+    "Total Track Kms": 103907,
+    "Electrification %": 0.07910327737022631
+  },
+  {
+    "FY": 1981,
+    "RKM Electrified Cumulative": 5345,
+    "Total Route Kms": 61240,
+    "Total Track Kms": 104480,
+    "Electrification %": 0.08727955584585238
+  },
+  {
+    "FY": 1982,
+    "RKM Electrified Cumulative": 5473,
+    "Total Route Kms": 61230,
+    "Total Track Kms": 104711,
+    "Electrification %": 0.08938428874734607
+  },
+  {
+    "FY": 1983,
+    "RKM Electrified Cumulative": 5815,
+    "Total Route Kms": 61385,
+    "Total Track Kms": 105106,
+    "Electrification %": 0.09472998289484402
+  },
+  {
+    "FY": 1984,
+    "RKM Electrified Cumulative": 5971,
+    "Total Route Kms": 61460,
+    "Total Track Kms": 105442,
+    "Electrification %": 0.09715261958997722
+  },
+  {
+    "FY": 1985,
+    "RKM Electrified Cumulative": 6325,
+    "Total Route Kms": 61850,
+    "Total Track Kms": 106124,
+    "Electrification %": 0.10226354082457559
+  },
+  {
+    "FY": 1986,
+    "RKM Electrified Cumulative": 6517,
+    "Total Route Kms": 61836,
+    "Total Track Kms": 106502,
+    "Electrification %": 0.10539168122129504
+  },
+  {
+    "FY": 1987,
+    "RKM Electrified Cumulative": 7275,
+    "Total Route Kms": 61813,
+    "Total Track Kms": 106615,
+    "Electrification %": 0.11769368902981574
+  },
+  {
+    "FY": 1988,
+    "RKM Electrified Cumulative": 8157,
+    "Total Route Kms": 61976,
+    "Total Track Kms": 107438,
+    "Electrification %": 0.13161546405060023
+  },
+  {
+    "FY": 1989,
+    "RKM Electrified Cumulative": 8880,
+    "Total Route Kms": 61985,
+    "Total Track Kms": 107840,
+    "Electrification %": 0.1432604662418327
+  },
+  {
+    "FY": 1990,
+    "RKM Electrified Cumulative": 9100,
+    "Total Route Kms": 62211,
+    "Total Track Kms": 108429,
+    "Electrification %": 0.14627638199032325
+  },
+  {
+    "FY": 1991,
+    "RKM Electrified Cumulative": 9968,
+    "Total Route Kms": 62367,
+    "Total Track Kms": 108858,
+    "Electrification %": 0.1598281142270752
+  },
+  {
+    "FY": 1992,
+    "RKM Electrified Cumulative": 10653,
+    "Total Route Kms": 62458,
+    "Total Track Kms": 109338,
+    "Electrification %": 0.17056261807934933
+  },
+  {
+    "FY": 1993,
+    "RKM Electrified Cumulative": 11064,
+    "Total Route Kms": 62486,
+    "Total Track Kms": 109149,
+    "Electrification %": 0.1770636622603463
+  },
+  {
+    "FY": 1994,
+    "RKM Electrified Cumulative": 11260,
+    "Total Route Kms": 62462,
+    "Total Track Kms": 108920,
+    "Electrification %": 0.18026960391918287
+  },
+  {
+    "FY": 1995,
+    "RKM Electrified Cumulative": 11772,
+    "Total Route Kms": 62660,
+    "Total Track Kms": 108513,
+    "Electrification %": 0.187871050111714
+  },
+  {
+    "FY": 1996,
+    "RKM Electrified Cumulative": 12306,
+    "Total Route Kms": 62915,
+    "Total Track Kms": 108336,
+    "Electrification %": 0.1955972343638242
+  },
+  {
+    "FY": 1997,
+    "RKM Electrified Cumulative": 13018,
+    "Total Route Kms": 62725,
+    "Total Track Kms": 107360,
+    "Electrification %": 0.20754085292945396
+  },
+  {
+    "FY": 1998,
+    "RKM Electrified Cumulative": 13490,
+    "Total Route Kms": 62495,
+    "Total Track Kms": 107445,
+    "Electrification %": 0.21585726858148652
+  },
+  {
+    "FY": 1999,
+    "RKM Electrified Cumulative": 13765,
+    "Total Route Kms": 62809,
+    "Total Track Kms": 108413,
+    "Electrification %": 0.219156490311898
+  },
+  {
+    "FY": 2001,
+    "RKM Electrified Cumulative": 14856,
+    "Total Route Kms": 63028,
+    "Total Track Kms": 108706,
+    "Electrification %": 0.23570476613568572
+  },
+  {
+    "FY": 2002,
+    "RKM Electrified Cumulative": 15994,
+    "Total Route Kms": 63140,
+    "Total Track Kms": 109227,
+    "Electrification %": 0.2533101045296167
+  },
+  {
+    "FY": 2003,
+    "RKM Electrified Cumulative": 16271,
+    "Total Route Kms": 63122,
+    "Total Track Kms": 109221,
+    "Electrification %": 0.25777066632869683
+  },
+  {
+    "FY": 2004,
+    "RKM Electrified Cumulative": 17503,
+    "Total Route Kms": 63221,
+    "Total Track Kms": 108486,
+    "Electrification %": 0.27685420983533954
+  },
+  {
+    "FY": 2005,
+    "RKM Electrified Cumulative": 17495,
+    "Total Route Kms": 63465,
+    "Total Track Kms": 108804,
+    "Electrification %": 0.2756637516741511
+  },
+  {
+    "FY": 2006,
+    "RKM Electrified Cumulative": 17907,
+    "Total Route Kms": 63332,
+    "Total Track Kms": 109808,
+    "Electrification %": 0.28274805785384954
+  },
+  {
+    "FY": 2007,
+    "RKM Electrified Cumulative": 17786,
+    "Total Route Kms": 63327,
+    "Total Track Kms": 109996,
+    "Electrification %": 0.28085966491385983
+  },
+  {
+    "FY": 2008,
+    "RKM Electrified Cumulative": 18273,
+    "Total Route Kms": 63273,
+    "Total Track Kms": 111599,
+    "Electrification %": 0.28879616898203025
+  },
+  {
+    "FY": 2009,
+    "RKM Electrified Cumulative": 18559,
+    "Total Route Kms": 64015,
+    "Total Track Kms": 113115,
+    "Electrification %": 0.2899164258376943
+  },
+  {
+    "FY": 2010,
+    "RKM Electrified Cumulative": 18927,
+    "Total Route Kms": 63974,
+    "Total Track Kms": 113617,
+    "Electrification %": 0.29585456591740394
+  },
+  {
+    "FY": 2011,
+    "RKM Electrified Cumulative": 19608,
+    "Total Route Kms": 64460,
+    "Total Track Kms": 114037,
+    "Electrification %": 0.3041886441203847
+  },
+  {
+    "FY": 2012,
+    "RKM Electrified Cumulative": 20275,
+    "Total Route Kms": 64600,
+    "Total Track Kms": 115062,
+    "Electrification %": 0.3138544891640867
+  },
+  {
+    "FY": 2013,
+    "RKM Electrified Cumulative": 20884,
+    "Total Route Kms": 65436,
+    "Total Track Kms": 115833,
+    "Electrification %": 0.31915153738003543
+  },
+  {
+    "FY": 2014,
+    "RKM Electrified Cumulative": 21614,
+    "Total Route Kms": 65808,
+    "Total Track Kms": 116765,
+    "Electrification %": 0.3284403112083637
+  },
+  {
+    "FY": 2015,
+    "RKM Electrified Cumulative": 22977,
+    "Total Route Kms": 66030,
+    "Total Track Kms": 117996,
+    "Electrification %": 0.34797819173103134
+  },
+  {
+    "FY": 2016,
+    "RKM Electrified Cumulative": 24479,
+    "Total Route Kms": 66252,
+    "Total Track Kms": 119630,
+    "Electrification %": 0.3694831854132705
+  },
+  {
+    "FY": 2017,
+    "RKM Electrified Cumulative": 26125,
+    "Total Route Kms": 66918,
+    "Total Track Kms": 121407,
+    "Electrification %": 0.3904031800113572
+  },
+  {
+    "FY": 2018,
+    "RKM Electrified Cumulative": 30212,
+    "Total Route Kms": 66935,
+    "Total Track Kms": 122873,
+    "Electrification %": 0.4513632628669605
+  },
+  {
+    "FY": 2019,
+    "RKM Electrified Cumulative": 35488,
+    "Total Route Kms": 67415,
+    "Total Track Kms": 123542,
+    "Electrification %": 0.526411036119558
+  },
+  {
+    "FY": 2020,
+    "RKM Electrified Cumulative": 39866,
+    "Total Route Kms": 67956,
+    "Total Track Kms": 126366,
+    "Electrification %": 0.5866442992524574
+  },
+  {
+    "FY": 2021,
+    "RKM Electrified Cumulative": 45881,
+    "Total Route Kms": 68103,
+    "Total Track Kms": 126611,
+    "Electrification %": 0.6737001306844045
+  },
+  {
+    "FY": 2022,
+    "RKM Electrified Cumulative": 52247,
+    "Total Route Kms": 68043,
+    "Total Track Kms": 128305,
+    "Electrification %": 0.7678526813926487
+  },
+  {
+    "FY": 2023,
+    "RKM Electrified Cumulative": 58812,
+    "Total Route Kms": 68584,
+    "Total Track Kms": 132310,
+    "Electrification %": 0.857517788405459
+  },
+  {
+    "FY": 2024,
+    "RKM Electrified Cumulative": 66000,
+    "Total Route Kms": 69181,
+    "Total Track Kms": 135207,
+    "Electrification %": 0.9540191671123575
+  }
+]
