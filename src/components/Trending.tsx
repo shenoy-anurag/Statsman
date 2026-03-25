@@ -13,7 +13,7 @@ export async function TrendingComparisons() {
         {trends.map(trend => (
           <Link
             key={trend.id}
-            href={`/?indicator=${trend.indicator}&countries=${trend.countries}&start=${trend.start}&end=${trend.end}`}
+            href={`/explore?indicator=${trend.indicator}&countries=${trend.countries}&start=${trend.start}&end=${trend.end}`}
             className="flex flex-col gap-1 p-3 rounded-none border border-border/50 bg-background hover:bg-muted/30 hover:border-border transition-all group text-left"
           >
             <span className="font-semibold text-sm group-hover:text-primary transition-colors leading-tight">{trend.title}</span>

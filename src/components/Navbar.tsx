@@ -1,14 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Coffee, Activity, Menu, X } from "lucide-react";
+import { Coffee, Activity, Menu, X, Search } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import SvgIcon from "./icons/svg-icon";
 import { Separator } from "@base-ui/react";
 import { useState } from "react";
+import { useKBar } from "kbar";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { query } = useKBar();
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -49,6 +52,13 @@ export function Navbar() {
         <div className="flex h-full items-stretch gap-2">
           {/* Desktop Right Nav Items */}
           <nav className="hidden md:flex h-full items-stretch gap-0 text-sm font-medium">
+            <button
+              onClick={() => query.toggle()}
+              className="flex h-full w-14 items-center justify-center rounded-none hover:bg-muted/70 text-muted-foreground hover:text-foreground transition-all group border-r border-border/20"
+              aria-label="Search"
+            >
+              <Search className="h-[1.1rem] w-[1.1rem]" />
+            </button>
             <ThemeToggle />
             <Link
               href="https://github.com/shenoy-anurag/statsman"
@@ -72,6 +82,13 @@ export function Navbar() {
 
           {/* Mobile Theme Toggle & Menu Toggle */}
           <div className="flex md:hidden items-center gap-1">
+            <button
+              onClick={() => query.toggle()}
+              className="flex items-center justify-center p-2 text-muted-foreground hover:text-foreground hover:bg-muted/70 transition-colors"
+              aria-label="Search"
+            >
+              <Search className="h-6 w-6" />
+            </button>
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}

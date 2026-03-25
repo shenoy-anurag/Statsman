@@ -37,6 +37,8 @@ export const metadata: Metadata = {
   description: "Visualize economic and social indicators alongside political leadership eras. See how countries performed under different leaders.",
 };
 
+import { KBarSearchComponent } from "@/components/KBarSearch";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -57,11 +59,13 @@ export default function RootLayout({
         >
           <NuqsAdapter>
             <TooltipProvider>
-              <Navbar />
-              <div className={`flex-1 w-full flex flex-col`}>
-                {children}
-              </div>
-              <Footer />
+              <KBarSearchComponent>
+                <Navbar />
+                <div className={`flex-1 w-full flex flex-col`}>
+                  {children}
+                </div>
+                <Footer />
+              </KBarSearchComponent>
             </TooltipProvider>
           </NuqsAdapter>
         </ThemeProvider>
@@ -69,3 +73,4 @@ export default function RootLayout({
     </html>
   );
 }
+
