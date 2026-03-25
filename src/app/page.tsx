@@ -1,15 +1,16 @@
 import { IndicatorChart } from "@/components/IndicatorChart";
 import { getMergedChartData } from "@/lib/data-merger";
-import { INDICATORS_MAP, TOP_INDICATORS } from "@/constants/indicators";
+import { INDICATORS_MAP, TOP_INDICATORS, INDICATOR_CATEGORIES } from "@/constants/indicators";
 import Link from "next/link";
 import { PaperTexture } from "@/components/PaperTexture";
+import { CategorySection } from "@/components/CategorySection";
 
 export default async function DashboardHome() {
   const countryCodes = ["IND", "CHN", "USA"];
   const startYear = 1976;
   const endYear = 2024;
 
-  // Fetch data for all top indicators
+  // Fetch data for the hero charts server-side (fast initial paint)
   const chartsData = await Promise.all(
     TOP_INDICATORS.map(async (indicatorCode) => {
       const data = await getMergedChartData(indicatorCode, countryCodes, startYear, endYear);
@@ -91,6 +92,29 @@ export default async function DashboardHome() {
           );
         })}
       </section>
+
+      {/* ── Categorized Indicator Sections (lazy-loaded & collapsible) ── */}
+      <div className="w-full flex flex-col gap-2 mt-8">
+        <div className="flex items-center justify-between mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-muted-foreground">
+            Deep-Dive Indicators
+          </h2>
+        </div>
+        <div className="h-px w-full bg-border mb-2" />
+
+        {INDICATOR_CATEGORIES.map((category, catIdx) => (
+          <CategorySection
+            key={category.id}
+            category={category}
+            countryCodes={countryCodes}
+            startYear={startYear}
+            endYear={endYear}
+            categoryIndex={catIdx}
+            defaultOpen={false}
+          />
+        ))}
+      </div>
     </main>
   );
 }
+

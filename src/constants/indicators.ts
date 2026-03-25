@@ -167,7 +167,237 @@ export const INDICATORS: IndicatorConfig[] = [
     caveat: "Represents net inflows (new investment minus disinvestment). Subject to massive volatility caused by singular mega-deals or sudden geopolitical shifts.",
     source: "https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
     type: "absolute",
-  }
+  },
+
+  // ── Macroeconomic Stability & Investment ──────────────────────────────
+  {
+    id: "FP.CPI.TOTL.ZG",
+    name: "Inflation, consumer prices (annual %)",
+    shortName: "Inflation Rate",
+    caveat: "CPI baskets differ across countries. Administered prices, energy subsidies, and base-year effects can all distort the headline figure.",
+    source: "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
+    type: "percentage",
+  },
+  {
+    id: "NE.GDI.TOTL.ZS",
+    name: "Gross capital formation (% of GDP)",
+    shortName: "Capital Formation (% GDP)",
+    caveat: "Includes fixed assets and inventory changes. High ratios may reflect overinvestment or construction booms that correct sharply.",
+    source: "https://data.worldbank.org/indicator/NE.GDI.TOTL.ZS",
+    type: "percentage",
+  },
+  {
+    id: "NE.GDI.TOTL.CD",
+    name: "Gross capital formation (current US$)",
+    shortName: "Capital Formation (US$)",
+    caveat: "Nominal value subject to exchange-rate swings. Does not convey efficiency or quality of the investments made.",
+    source: "https://data.worldbank.org/indicator/NE.GDI.TOTL.CD",
+    type: "absolute",
+  },
+  {
+    id: "NE.GDI.FTOT.KD.ZG",
+    name: "Gross fixed capital formation (annual % growth)",
+    shortName: "Fixed Capital Growth",
+    caveat: "Tracks long-term physical asset investment growth. Large government projects or real-estate bubbles can inflate this figure temporarily.",
+    source: "https://data.worldbank.org/indicator/NE.GDI.FTOT.KD.ZG",
+    type: "percentage",
+  },
+  {
+    id: "BN.CAB.XOKA.GD.ZS",
+    name: "Current account balance (% of GDP)",
+    shortName: "Current Account Balance",
+    caveat: "Persistent deficits signal reliance on foreign capital; persistent surpluses may reflect suppressed domestic consumption.",
+    source: "https://data.worldbank.org/indicator/BN.CAB.XOKA.GD.ZS",
+    type: "percentage",
+  },
+
+  // ── Financial System Health ───────────────────────────────────────────
+  {
+    id: "FB.BNK.CAPA.ZS",
+    name: "Bank capital to assets ratio (%)",
+    shortName: "Bank Capital Ratio",
+    caveat: "Higher ratios suggest resilience, but can also indicate banks are not lending enough. Off-balance-sheet exposures are not captured.",
+    source: "https://data.worldbank.org/indicator/FB.BNK.CAPA.ZS",
+    type: "percentage",
+  },
+  {
+    id: "FB.AST.NPER.ZS",
+    name: "Bank nonperforming loans to total gross loans (%)",
+    shortName: "NPL Ratio",
+    caveat: "Definitions of 'nonperforming' vary across jurisdictions. Banks may restructure loans to avoid classification, masking true asset quality.",
+    source: "https://data.worldbank.org/indicator/FB.AST.NPER.ZS",
+    type: "percentage",
+  },
+  {
+    id: "FR.INR.LEND",
+    name: "Lending interest rate (%)",
+    shortName: "Lending Rate",
+    caveat: "Represents the rate at which banks lend to prime customers. Actual rates for SMEs and consumers can be significantly higher.",
+    source: "https://data.worldbank.org/indicator/FR.INR.LEND",
+    type: "percentage",
+  },
+
+  // ── Economic Structure & Industrialization ────────────────────────────
+  {
+    id: "NV.AGR.TOTL.KD.ZG",
+    name: "Agriculture, forestry, and fishing, value added (annual % growth)",
+    shortName: "Agriculture Growth",
+    caveat: "Highly weather-dependent. Policy changes such as land reform or subsidy shifts can create volatile year-over-year swings.",
+    source: "https://data.worldbank.org/indicator/NV.AGR.TOTL.KD.ZG",
+    type: "percentage",
+  },
+  {
+    id: "NV.IND.MANF.ZS",
+    name: "Manufacturing, value added (% of GDP)",
+    shortName: "Manufacturing (% GDP)",
+    caveat: "Declining share may reflect deindustrialization or simply that services are growing faster. Does not capture informal manufacturing.",
+    source: "https://data.worldbank.org/indicator/NV.IND.MANF.ZS",
+    type: "percentage",
+  },
+  {
+    id: "NV.SRV.TOTL.ZS",
+    name: "Services, value added (% of GDP)",
+    shortName: "Services (% GDP)",
+    caveat: "High services share correlates with advanced economies, but can also reflect premature deindustrialization in developing nations.",
+    source: "https://data.worldbank.org/indicator/NV.SRV.TOTL.ZS",
+    type: "percentage",
+  },
+
+  // ── Trade, Innovation & Competitiveness ───────────────────────────────
+  {
+    id: "NE.EXP.GNFS.KD.ZG",
+    name: "Exports of goods and services (annual % growth)",
+    shortName: "Export Growth",
+    caveat: "Growth rates are volatile and highly sensitive to global recessions, commodity price swings, and trade policy changes.",
+    source: "https://data.worldbank.org/indicator/NE.EXP.GNFS.KD.ZG",
+    type: "percentage",
+  },
+  {
+    id: "GC.TAX.IMPT.CN",
+    name: "Customs and other import duties (current LCU)",
+    shortName: "Import Duties",
+    caveat: "Reported in local currency, making cross-country comparison difficult without conversion. Reflects protectionist tendency and trade-tax reliance.",
+    source: "https://data.worldbank.org/indicator/GC.TAX.IMPT.CN",
+    type: "absolute",
+  },
+  {
+    id: "IP.PAT.RESD",
+    name: "Patent applications, residents",
+    shortName: "Resident Patents",
+    caveat: "Volume does not equate to quality. Some countries incentivize patent filing through subsidies, inflating counts without proportional innovation.",
+    source: "https://data.worldbank.org/indicator/IP.PAT.RESD",
+    type: "absolute",
+  },
+  {
+    id: "GB.XPD.RSDV.GD.ZS",
+    name: "Research and development expenditure (% of GDP)",
+    shortName: "R&D Spending",
+    caveat: "Includes government, business, and academic R&D. Military R&D is often excluded or classified, understating true national effort.",
+    source: "https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS",
+    type: "percentage",
+  },
+
+  // ── Social Equity & Human Capital ─────────────────────────────────────
+  {
+    id: "SI.POV.GINI",
+    name: "Gini index",
+    shortName: "Gini Index",
+    caveat: "The gold standard for inequality measurement, but relies on household survey data that is infrequent in many developing nations.",
+    source: "https://data.worldbank.org/indicator/SI.POV.GINI",
+    type: "absolute",
+  },
+  {
+    id: "SL.TLF.ACTI.1524.FE.NE.ZS",
+    name: "Labor force participation rate for ages 15-24, female (%) (national estimate)",
+    shortName: "Youth LFP (Female)",
+    caveat: "Cultural norms, educational enrollment, and survey methodology differences limit cross-country comparability.",
+    source: "https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.FE.NE.ZS",
+    type: "percentage",
+  },
+  {
+    id: "SL.TLF.ACTI.1524.MA.NE.ZS",
+    name: "Labor force participation rate for ages 15-24, male (%) (national estimate)",
+    shortName: "Youth LFP (Male)",
+    caveat: "Declining rates may reflect higher educational attainment rather than discouragement. Military conscription affects some countries.",
+    source: "https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.MA.NE.ZS",
+    type: "percentage",
+  },
+  {
+    id: "SN.ITK.DEFC.ZS",
+    name: "Prevalence of undernourishment (% of population)",
+    shortName: "Undernourishment",
+    caveat: "Based on food availability and distribution models. Does not capture micronutrient deficiencies or diet quality.",
+    source: "https://data.worldbank.org/indicator/SN.ITK.DEFC.ZS",
+    type: "percentage",
+  },
+
+  // ── Infrastructure & Environment ──────────────────────────────────────
+  {
+    id: "EG.CFT.ACCS.ZS",
+    name: "Access to clean fuels and technologies for cooking (% of population)",
+    shortName: "Clean Cooking Access",
+    caveat: "Self-reported data; actual usage patterns may differ from access. Does not capture seasonal or regional variation within countries.",
+    source: "https://data.worldbank.org/indicator/EG.CFT.ACCS.ZS",
+    type: "percentage",
+  },
+  {
+    id: "SH.H2O.BASW.ZS",
+    name: "People using at least basic drinking water services (% of population)",
+    shortName: "Basic Water Access",
+    caveat: "'Basic' is a minimum service level. It does not guarantee water safety, reliability, or proximity of the source.",
+    source: "https://data.worldbank.org/indicator/SH.H2O.BASW.ZS",
+    type: "percentage",
+  },
+  {
+    id: "EG.ELC.LOSS.ZS",
+    name: "Electric power transmission and distribution losses (% of output)",
+    shortName: "Power Grid Losses",
+    caveat: "High losses can indicate aging infrastructure, theft, or poor governance. Technical vs. commercial losses are not separated.",
+    source: "https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS",
+    type: "percentage",
+  },
+  {
+    id: "EN.GHG.CO2.MT.CE.AR5",
+    name: "CO2 emissions (Mt CO2e)",
+    shortName: "CO₂ Emissions",
+    caveat: "Production-based accounting; does not attribute emissions embedded in imported goods to the consuming country.",
+    source: "https://data.worldbank.org/indicator/EN.GHG.CO2.MT.CE.AR5",
+    type: "absolute",
+  },
+  {
+    id: "EN.GHG.CO2.RT.GDP.KD",
+    name: "CO2 intensity of GDP (kg CO2e per constant 2015 US$ of GDP)",
+    shortName: "Carbon Intensity",
+    caveat: "Declining intensity can mask rising absolute emissions if GDP is growing fast. Sector mix heavily influences the ratio.",
+    source: "https://data.worldbank.org/indicator/EN.GHG.CO2.RT.GDP.KD",
+    type: "absolute",
+  },
+
+  // ── Demographics & Dependency Burden ──────────────────────────────────
+  {
+    id: "SP.POP.DPND",
+    name: "Age dependency ratio (% of working-age population)",
+    shortName: "Dependency Ratio",
+    caveat: "Assumes 15–64 as working age, which varies by country. Does not reflect actual labor force participation or retirement ages.",
+    source: "https://data.worldbank.org/indicator/SP.POP.DPND",
+    type: "percentage",
+  },
+  {
+    id: "SP.POP.DPND.OL",
+    name: "Age dependency ratio, old (% of working-age population)",
+    shortName: "Old-Age Dependency",
+    caveat: "Rising ratios signal pension and healthcare cost pressures. Does not account for seniors who continue to work.",
+    source: "https://data.worldbank.org/indicator/SP.POP.DPND.OL",
+    type: "percentage",
+  },
+  {
+    id: "SP.POP.DPND.YG",
+    name: "Age dependency ratio, young (% of working-age population)",
+    shortName: "Youth Dependency",
+    caveat: "High ratios can indicate a demographic dividend opportunity or an education/employment challenge, depending on policy context.",
+    source: "https://data.worldbank.org/indicator/SP.POP.DPND.YG",
+    type: "percentage",
+  },
 ];
 
 // Provide an easy lookup map for UI rendering context
@@ -187,4 +417,93 @@ export const TOP_INDICATORS = [
   "IT.NET.USER.ZS",      // Internet Users
   "BX.KLT.DINV.CD.WD",   // FDI
   "SP.POP.TOTL"          // Population
+];
+
+// ── Categorized Indicator Groups for the Dashboard ──────────────────────
+
+export interface IndicatorCategory {
+  id: string;
+  title: string;
+  description: string;
+  indicators: string[];
+}
+
+export const INDICATOR_CATEGORIES: IndicatorCategory[] = [
+  {
+    id: "macroeconomic",
+    title: "Macroeconomic Stability & Investment",
+    description: "How a leader manages the national ledger and whether they are reinvesting in the future.",
+    indicators: [
+      "FP.CPI.TOTL.ZG",
+      "NE.GDI.TOTL.ZS",
+      "NE.GDI.TOTL.CD",
+      "NE.GDI.FTOT.KD.ZG",
+      "BN.CAB.XOKA.GD.ZS",
+    ],
+  },
+  {
+    id: "financial-health",
+    title: "Financial System Health",
+    description: "Risk and efficiency of the banking sector — critical for comparing modern economies.",
+    indicators: [
+      "FB.BNK.CAPA.ZS",
+      "FB.AST.NPER.ZS",
+      "FR.INR.LEND",
+    ],
+  },
+  {
+    id: "economic-structure",
+    title: "Economic Structure & Industrialization",
+    description: "The DNA of the economy — comparing agrarian focus vs. industrial pivot vs. services dominance.",
+    indicators: [
+      "NV.AGR.TOTL.KD.ZG",
+      "NV.IND.MANF.ZS",
+      "NV.SRV.TOTL.ZS",
+    ],
+  },
+  {
+    id: "trade-innovation",
+    title: "Trade, Innovation & Competitiveness",
+    description: "Openness to the world and commitment to future technology.",
+    indicators: [
+      "NE.EXP.GNFS.KD.ZG",
+      "GC.TAX.IMPT.CN",
+      "IP.PAT.RESD",
+      "GB.XPD.RSDV.GD.ZS",
+    ],
+  },
+  {
+    id: "social-equity",
+    title: "Social Equity & Human Capital",
+    description: "Who actually benefits from a leader's economic policies.",
+    indicators: [
+      "SI.POV.GINI",
+      "SL.TLF.ACTI.1524.FE.NE.ZS",
+      "SL.TLF.ACTI.1524.MA.NE.ZS",
+      "SN.ITK.DEFC.ZS",
+    ],
+  },
+  {
+    id: "infrastructure-environment",
+    title: "Infrastructure & Environment",
+    description: "The bones of the country and the environmental cost of its growth.",
+    indicators: [
+      "EG.CFT.ACCS.ZS",
+      "SH.H2O.BASW.ZS",
+      "EG.ELC.LOSS.ZS",
+      "AG.LND.FRST.ZS",
+      "EN.GHG.CO2.MT.CE.AR5",
+      "EN.GHG.CO2.RT.GDP.KD",
+    ],
+  },
+  {
+    id: "demographics",
+    title: "Demographics & The Dependency Burden",
+    description: "Constraints leaders work within — distinguishing aging-society vs. youth-bulge challenges.",
+    indicators: [
+      "SP.POP.DPND",
+      "SP.POP.DPND.OL",
+      "SP.POP.DPND.YG",
+    ],
+  },
 ];

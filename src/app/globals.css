@@ -368,3 +368,33 @@
     @apply font-sans;
   }
 }
+
+/* Skeleton shimmer animation for lazy-loading chart placeholders */
+@keyframes skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-shimmer {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--muted-foreground) / 0.06) 40%,
+    hsl(var(--muted-foreground) / 0.10) 50%,
+    hsl(var(--muted-foreground) / 0.06) 60%,
+    transparent 100%
+  );
+  animation: skeleton-shimmer 2s infinite ease-in-out;
+}
