@@ -40,4 +40,21 @@
   - [x] Implement chart interactivity with click-through links and ArrowUpRight hover animations.
   - [x] Bugfix: Political era background alignment using per-country data bounding.
   - [x] Typography refinement: Add Libre Baskerville serif and clean up font imports.
-
+- [x] Phase 9: Expanded Indicators & Categories
+  - [x] Add 28 new World Bank indicators to `indicators.ts`
+  - [x] Define `IndicatorCategory` interface and `INDICATOR_CATEGORIES` array
+  - [x] Organize indicators into 7 thematic categories with titles and descriptions
+  - [x] Render categorized sections below the top-10 hero grid on the main page
+- [x] Phase 10: Lazy Loading & Collapsible Categories
+  - [x] Create `/api/indicator` route for on-demand data fetching
+  - [x] Build `LazyChartCard` component with IntersectionObserver + skeleton shimmer
+  - [x] Build `CategorySection` component with accordion expand/collapse (CSS grid-template-rows)
+  - [x] Add `skeleton-shimmer` CSS keyframe animation to `globals.css`
+  - [x] Update `page.tsx` to use lazy client components for category sections
+  - [x] Keep top-10 hero charts server-rendered for fast initial paint
+  - [x] Verify skeleton → chart transition in browser
+- [ ] Phase 11: Future Enhancements
+  - [ ] "Expand All / Collapse All" toggle for category sections
+  - [ ] Search/filter across all indicators
+  - [ ] Additional country-specific dashboards
+  - [ ] Automated visual regression tests

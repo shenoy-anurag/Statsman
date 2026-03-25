@@ -430,6 +430,33 @@ export interface IndicatorCategory {
 
 export const INDICATOR_CATEGORIES: IndicatorCategory[] = [
   {
+    id: "core",
+    title: "Core Economic & Social Indicators",
+    description: "Foundational metrics covering GDP, poverty, employment, education, health, and population.",
+    indicators: [
+      "NY.GDP.MKTP.KD.ZG",
+      "NY.GDP.MKTP.CD",
+      "NY.GDP.PCAP.CD",
+      "NY.GNP.PCAP.CD",
+      "NY.GNS.ICTR.GN.ZS",
+      "SI.POV.NAHC",
+      "SI.POV.LMIC",
+      "SI.DST.FRST.20",
+      "SL.UEM.TOTL.ZS",
+      "SL.TLF.CACT.ZS",
+      "SE.PRM.ENRR",
+      "SE.ADT.1524.LT.ZS",
+      "SP.DYN.LE00.IN",
+      "SH.DYN.MORT",
+      "SP.POP.TOTL",
+      "EG.ELC.ACCS.ZS",
+      "IT.NET.USER.ZS",
+      "AG.LND.FRST.ZS",
+      "NE.EXP.GNFS.ZS",
+      "BX.KLT.DINV.CD.WD",
+    ],
+  },
+  {
     id: "macroeconomic",
     title: "Macroeconomic Stability & Investment",
     description: "How a leader manages the national ledger and whether they are reinvesting in the future.",

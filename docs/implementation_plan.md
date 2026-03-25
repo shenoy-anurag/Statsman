@@ -67,13 +67,38 @@ Create a highly interactive and stunning web application to visualize economic a
 - Fixed a critical political era alignment bug by implementing per-country data bounding and explicit `startYear`/`endYear` props for `IndicatorChart`, ensuring gradients map correctly to the active timeline.
 - Refined typography by introducing `Libre Baskerville` as a semantic serif face (`--font-serif`) and removing unused mono font variants to streamline the design system.
 
+#### Phase 9: Expanded Indicators & Categories
+
+- Added 28 new World Bank indicators to `src/constants/indicators.ts`, organized into 7 thematic categories:
+  1. **Macroeconomic Stability & Investment** (5 indicators): Inflation, Capital Formation (% GDP & US$), Fixed Capital Growth, Current Account Balance.
+  2. **Financial System Health** (3 indicators): Bank Capital Ratio, NPL Ratio, Lending Rate.
+  3. **Economic Structure & Industrialization** (3 indicators): Agriculture Growth, Manufacturing (% GDP), Services (% GDP).
+  4. **Trade, Innovation & Competitiveness** (4 indicators): Export Growth, Import Duties, Resident Patents, R&D Spending.
+  5. **Social Equity & Human Capital** (4 indicators): Gini Index, Youth LFP (Female/Male), Undernourishment.
+  6. **Infrastructure & Environment** (6 indicators): Clean Cooking Access, Water Access, Grid Losses, Forest Cover, CO₂ Emissions, Carbon Intensity.
+  7. **Demographics & Dependency Burden** (3 indicators): Total/Old/Young Dependency Ratios.
+- Exported `IndicatorCategory` interface and `INDICATOR_CATEGORIES` constant grouping indicator codes with titles and descriptions.
+- Rendered all categorized sections below the top-10 hero grid on the main dashboard page.
+
+#### Phase 10: Lazy Loading & Collapsible Categories
+- **API Route** (`src/app/api/indicator/route.ts`): New GET endpoint exposing `getMergedChartData` for client-side on-demand fetching. Accepts `indicator`, `countries`, `startYear`, `endYear` query params.
+- **LazyChartCard** (`src/components/LazyChartCard.tsx`): Client component using `IntersectionObserver` (200px rootMargin) to detect viewport proximity and fetch chart data on-demand. Shows a shimmer skeleton with faux chart SVG lines while loading.
+- **CategorySection** (`src/components/CategorySection.tsx`): Collapsible accordion section using CSS `grid-template-rows: 0fr → 1fr` animation. Features rotating chevron, category description, and indicator count badge. Defaults to collapsed state.
+- **Page update** (`src/app/page.tsx`): Top-10 hero charts remain server-rendered for fast initial paint. Category sections are rendered client-side via `CategorySection` → `LazyChartCard`, fetching data only when expanded and scrolled into view.
+- **CSS** (`src/app/globals.css`): Added `skeleton-shimmer` keyframe animation and utility class for the loading placeholders.
+
 ## Verification Plan
 
 ### Automated Tests
 - Unit tests for data transformation/merging logic (ensuring the political eras correctly align with the World Bank data points).
 - Tests validating the URL state query parsing.
+- TypeScript compilation check (`npx tsc --noEmit`) after each change.
 
 ### Manual Verification
 - Visual design review against "premium" standards.
 - Interaction testing for the chart tooltips to ensure they clearly show the requested leader data.
 - Performance testing to ensure removing/adding filters is responsive.
+- Verify lazy-loading: skeletons appear immediately on expand, charts load after API response.
+- Verify collapsible accordion: smooth expand/collapse animation, chevron rotation, indicator count badges.
+- Verify categories default to collapsed and only fetch data when expanded and scrolled into view.
+

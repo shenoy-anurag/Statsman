@@ -1,8 +1,8 @@
 "use client";
 
 import { useQueryState } from "nuqs";
-import { INDICATORS } from "@/constants/indicators";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { INDICATORS, INDICATORS_MAP, INDICATOR_CATEGORIES } from "@/constants/indicators";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface ControlsProps {
   initialIndicator: string;
@@ -65,10 +65,21 @@ export function Controls({ initialIndicator, initialCountries, initialStart, ini
             </SelectValue>
           </SelectTrigger>
           <SelectContent className="w-full bg-background">
-            {INDICATORS.map(ind => (
-              <SelectItem key={ind.id} value={ind.id}>
-                {ind.shortName}
-              </SelectItem>
+            {INDICATOR_CATEGORIES.map(category => (
+              <SelectGroup key={category.id}>
+                <SelectLabel className="font-bold text-primary border-b border-border/40 mb-1 mt-2 pb-1">
+                  {category.title}
+                </SelectLabel>
+                {category.indicators.map(id => {
+                  const indicator = INDICATORS_MAP[id];
+                  if (!indicator) return null;
+                  return (
+                    <SelectItem key={id} value={id}>
+                      {indicator.shortName}
+                    </SelectItem>
+                  );
+                })}
+              </SelectGroup>
             ))}
           </SelectContent>
         </Select>
