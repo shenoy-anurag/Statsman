@@ -398,6 +398,23 @@ export const INDICATORS: IndicatorConfig[] = [
     source: "https://data.worldbank.org/indicator/SP.POP.DPND.YG",
     type: "percentage",
   },
+  // ── Political Violence & Crimes ──────────────────────────────────
+  {
+    id: "PV.TER.DTHS",
+    name: "Terrorism Deaths",
+    shortName: "Terrorism Deaths",
+    caveat: "Data includes deaths from terrorist incidents. Reporting may vary by region and conflict intensity.",
+    source: "Global Terrorism Database",
+    type: "absolute",
+  },
+  {
+    id: "PV.TER.INCD",
+    name: "Terrorist Attacks",
+    shortName: "Terrorist Attacks",
+    caveat: "Number of recorded terrorist incidents. Definitions of terrorism and reporting consistency can differ across countries.",
+    source: "Global Terrorism Database",
+    type: "absolute",
+  },
 ];
 
 // Provide an easy lookup map for UI rendering context
@@ -531,6 +548,15 @@ export const INDICATOR_CATEGORIES: IndicatorCategory[] = [
       "SP.POP.DPND",
       "SP.POP.DPND.OL",
       "SP.POP.DPND.YG",
+    ],
+  },
+  {
+    id: "political-violence",
+    title: "Political Violence & Crimes",
+    description: "Impact of terrorism and political instability on national security.",
+    indicators: [
+      "PV.TER.DTHS",
+      "PV.TER.INCD",
     ],
   },
 ];
