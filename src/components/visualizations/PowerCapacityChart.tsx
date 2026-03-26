@@ -7,10 +7,10 @@ import {
   ChartContainer,
   ChartTooltip,
 } from "@/components/ui/chart";
-import { generateEraGradient } from "./PoliticalEraBackground";
+import { generateEraGradient } from "@/components/PoliticalEraBackground";
 import { getPoliticalEra, PoliticalEra } from "@/lib/political-data";
-import { PaperTexture } from "./PaperTexture";
-import generationDataRaw from "@/data/electricity-power-generation.json";
+import { PaperTexture } from "@/components/PaperTexture";
+import capacityDataRaw from "@/data/electricity-installed-capacity.json";
 
 const chartConfig = {
   Coal: {
@@ -37,6 +37,10 @@ const chartConfig = {
     label: "Solar",
     color: "var(--color-tuscan-sun-400)",
   },
+  "Small-Hydro": {
+    label: "Small-Hydro",
+    color: "var(--color-seagrass-500)",
+  },
   "Bio Power": {
     label: "Bio Power",
     color: "var(--color-willow-green-400)",
@@ -47,7 +51,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function PowerGenerationChart() {
+export function PowerCapacityChart() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const chartId = useId();
 
@@ -61,17 +65,13 @@ export function PowerGenerationChart() {
   }, []);
 
   const data = useMemo(() => {
-    const indData = (generationDataRaw as any).data.IND;
+    const indData = (capacityDataRaw as any).data.IND;
     const years = Object.keys(indData).sort((a, b) => parseInt(a) - parseInt(b));
-    
+
     return years.map(yearStr => {
       const year = parseInt(yearStr);
       const yearData = indData[yearStr];
       const era = getPoliticalEra("IND", year);
-      
-      const total = yearData.Total || 0;
-      const resTotal = yearData["RES-Total"] || 0;
-      const renewablesPct = total > 0 ? (resTotal / total) * 100 : 0;
 
       return {
         year,
@@ -81,9 +81,10 @@ export function PowerGenerationChart() {
         Hydro: yearData.Hydro || 0,
         Wind: yearData.Wind || 0,
         Solar: yearData.Solar || 0,
+        // "Small-Hydro": yearData["Small-Hydro"] || 0,
         "Bio Power": yearData["Bio Power"] || 0,
-        "Renewables %": renewablesPct,
-        total: total,
+        "Renewables %": (yearData["RES-Total"] / yearData.Total) * 100 || 0,
+        total: yearData.Total || 0,
         IND_era: era,
       };
     });
@@ -103,14 +104,14 @@ export function PowerGenerationChart() {
           <PaperTexture />
           <div className="flex items-center justify-between border-b pb-2">
             <p className="font-bold text-lg text-foreground">{label}</p>
-            <span className="text-xs font-mono bg-muted px-2 py-1 rounded-none text-muted-foreground uppercase tracking-tighter">Power Generation (MU)</span>
+            <span className="text-xs font-mono bg-muted px-2 py-1 rounded-none text-muted-foreground uppercase tracking-tighter">Installed Capacity (MW)</span>
           </div>
 
           <div className="grid grid-cols-1 gap-1.5 overflow-hidden">
             {sortedPayload.map((entry: any, index: number) => {
-              if (entry.dataKey === "total" || entry.dataKey === "Renewables %") return null;
+              if (entry.dataKey === "total") return null;
               const value = entry.value;
-              if (value === 0 && label < 1990) return null;
+              if (value === 0 && label < 1990) return null; // Hide zeros in old data to keep it clean
 
               return (
                 <div key={index} className="flex items-center justify-between gap-4 text-sm">
@@ -127,11 +128,11 @@ export function PowerGenerationChart() {
           </div>
 
           <div className="border-t pt-2 flex items-center justify-between font-bold text-foreground">
-            <span>Total Generation</span>
-            <span className="font-mono">{payload[0].payload.total.toLocaleString(undefined, { maximumFractionDigits: 0 })} MU</span>
+            <span>Total</span>
+            <span className="font-mono">{payload[0].payload.total.toLocaleString(undefined, { maximumFractionDigits: 0 })} MW</span>
           </div>
 
-          <div className="pt-2 flex items-center justify-between font-bold text-foreground border-t border-dashed mt-1">
+          <div className="pt-2 flex items-center justify-between font-bold text-foreground">
             <span>Renewables %</span>
             <span className="font-mono">{payload[0].payload["Renewables %"].toLocaleString(undefined, { maximumFractionDigits: 1 })} %</span>
           </div>
@@ -157,8 +158,8 @@ export function PowerGenerationChart() {
     <div className="w-full h-full relative overflow-hidden bg-card rounded-none md:border md:p-4 group/chart">
       <PaperTexture />
       <ChartContainer config={chartConfig} className="h-full w-full">
-        <AreaChart 
-          data={data} 
+        <AreaChart
+          data={data}
           margin={{ left: isSmallScreen ? 4 : 16, right: isSmallScreen ? 4 : 16, top: 16, bottom: 16 }}
           stackOffset="none"
         >
@@ -172,6 +173,7 @@ export function PowerGenerationChart() {
               enabled: true
             })}
           </defs>
+
           <CartesianGrid vertical={false} opacity={0.2} strokeDasharray="3 3" />
           <XAxis
             dataKey="year"
@@ -195,11 +197,12 @@ export function PowerGenerationChart() {
             }}
             hide={isSmallScreen}
           />
-          <ChartTooltip 
-            cursor={{ stroke: "hsl(var(--muted-foreground))", strokeWidth: 1, strokeDasharray: "4 4" }} 
-            content={<CustomTooltipContent />} 
+          <ChartTooltip
+            cursor={{ stroke: "hsl(var(--muted-foreground))", strokeWidth: 1, strokeDasharray: "4 4" }}
+            content={<CustomTooltipContent />}
           />
 
+          {/* Background Political Era Gradients applied via a non-stacked area */}
           <Area
             key="era-bg"
             dataKey="total"
@@ -252,6 +255,16 @@ export function PowerGenerationChart() {
             animationDuration={2100}
           />
           <Area
+            dataKey="Small-Hydro"
+            type="monotone"
+            stackId="1"
+            stroke={chartConfig["Small-Hydro"].color}
+            fill={chartConfig["Small-Hydro"].color}
+            strokeWidth={1}
+            fillOpacity={1}
+            animationDuration={2300}
+          />
+          <Area
             dataKey="Bio Power"
             type="monotone"
             stackId="1"
@@ -281,6 +294,7 @@ export function PowerGenerationChart() {
             fillOpacity={1}
             animationDuration={3000}
           />
+
         </AreaChart>
       </ChartContainer>
     </div>

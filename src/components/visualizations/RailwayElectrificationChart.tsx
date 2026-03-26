@@ -7,9 +7,9 @@ import {
   ChartContainer,
   ChartTooltip,
 } from "@/components/ui/chart";
-import { generateEraGradient } from "./PoliticalEraBackground";
+import { generateEraGradient } from "@/components/PoliticalEraBackground";
 import { getPoliticalEra, PoliticalEra } from "@/lib/political-data";
-import { PaperTexture } from "./PaperTexture";
+import { PaperTexture } from "@/components/PaperTexture";
 import railwayDataRaw from "@/data/india-railways-network-stats-1971-2024.json";
 
 const chartConfig = {

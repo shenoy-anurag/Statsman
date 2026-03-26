@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { IndicatorChart } from "@/components/IndicatorChart";
-import { RailwayElectrificationChart } from "@/components/RailwayElectrificationChart";
-import { PowerCapacityChart } from "@/components/PowerCapacityChart";
-import { PowerGenerationChart } from "@/components/PowerGenerationChart";
+import { RailwayElectrificationChart } from "@/components/visualizations/RailwayElectrificationChart";
+import { PowerCapacityChart } from "@/components/visualizations/PowerCapacityChart";
+import { PowerGenerationChart } from "@/components/visualizations/PowerGenerationChart";
 
 import { getMergedChartData, MergedDataPoint } from "@/lib/data-merger";
 import { INDICATORS_MAP } from "@/constants/indicators";

@@ -1,4 +1,4 @@
-import { RailwayElectrificationChart } from "@/components/RailwayElectrificationChart";
+import { RailwayElectrificationChart } from "@/components/visualizations/RailwayElectrificationChart";
 import { ChevronLeft, Info, ExternalLink, Calendar, Database, Train } from "lucide-react";
 import Link from "next/link";
 import { PaperTexture } from "@/components/PaperTexture";

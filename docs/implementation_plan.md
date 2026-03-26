@@ -87,6 +87,19 @@ Create a highly interactive and stunning web application to visualize economic a
 - **Page update** (`src/app/page.tsx`): Top-10 hero charts remain server-rendered for fast initial paint. Category sections are rendered client-side via `CategorySection` → `LazyChartCard`, fetching data only when expanded and scrolled into view.
 - **CSS** (`src/app/globals.css`): Added `skeleton-shimmer` keyframe animation and utility class for the loading placeholders.
 
+#### Phase 11: Global Command Palette & Search
+- Integrated `kbar` for a global command palette interface accessible via `Cmd+K` or a search button in the Navbar.
+- Registered static actions for main dashboard navigation and dynamic actions for searching across all 400+ World Bank indicators.
+- Implemented a custom glassmorphism UI for search results with specific grouping for "Navigation", "India Dashboard", and "Indicators".
+- Added theme-toggle and indicator-specific shortcut support within the command palette.
+
+#### Phase 12: India Energy Dashboards & Vertical Data
+- Developed `PowerCapacityChart` and `PowerGenerationChart` using stacked area visualizations to track India's energy mix (1948–2026).
+- Implemented dedicated detail pages for **Power Installed Capacity** (`/india/power`) and **Power Generation** (`/india/generation`).
+- Integrated "Renewables %" real-time calculation and political era overlays for all energy production metrics.
+- Sourced and documented granular data from MNRE and CEA (Central Electricity Authority).
+- Updated the India Dashboard layout with clickable, single-column cards linking to these specialized energy views.
+
 ## Verification Plan
 
 ### Automated Tests

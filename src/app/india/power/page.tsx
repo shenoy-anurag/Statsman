@@ -1,4 +1,4 @@
-import { PowerCapacityChart } from "@/components/PowerCapacityChart";
+import { PowerCapacityChart } from "@/components/visualizations/PowerCapacityChart";
 import { ChevronLeft, Info, ExternalLink, Calendar, Zap } from "lucide-react";
 import Link from "next/link";
 import { PaperTexture } from "@/components/PaperTexture";
@@ -36,7 +36,7 @@ export default function PowerPage() {
                 Capacity Stats (MW)
               </div>
             </div>
-            <div className="w-full flex-grow relative min-h-[450px]">
+            <div className="w-full flex-grow relative min-h-[550px]">
               <PowerCapacityChart />
             </div>
             <div className="mt-6 pt-6 border-t border-border/20 text-sm text-muted-foreground flex flex-col gap-2">
