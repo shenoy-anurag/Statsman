@@ -26,6 +26,8 @@ import {
   Search,
   Train,
   Zap,
+  Skull,
+  AlertTriangle,
 } from "lucide-react";
 
 
@@ -107,6 +109,22 @@ export function KBarSearchComponent({ children }: { children: React.ReactNode })
       icon: <TrendingUp className="w-5 h-5 flex-shrink-0" />,
       section: "India Dashboard",
     },
+    // {
+    //   id: "india-terrorism-deaths",
+    //   name: "Terrorism Deaths (India)",
+    //   keywords: "india terrorism deaths fatalities violence",
+    //   perform: () => router.push("/explore?indicator=PV.TER.DTHS&countries=IND"),
+    //   icon: <Skull className="w-5 h-5 flex-shrink-0" />,
+    //   section: "India Dashboard",
+    // },
+    // {
+    //   id: "india-terrorism-attacks",
+    //   name: "Terrorist Attacks (India)",
+    //   keywords: "india terrorism attacks incidents violence",
+    //   perform: () => router.push("/explore?indicator=PV.TER.INCD&countries=IND"),
+    //   icon: <AlertTriangle className="w-5 h-5 flex-shrink-0" />,
+    //   section: "India Dashboard",
+    // },
     {
       id: "theme",
       name: "Toggle Theme",

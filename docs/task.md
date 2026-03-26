@@ -53,8 +53,20 @@
   - [x] Update `page.tsx` to use lazy client components for category sections
   - [x] Keep top-10 hero charts server-rendered for fast initial paint
   - [x] Verify skeleton → chart transition in browser
-- [ ] Phase 11: Future Enhancements
-  - [ ] "Expand All / Collapse All" toggle for category sections
-  - [ ] Search/filter across all indicators
-  - [ ] Additional country-specific dashboards
-  - [ ] Automated visual regression tests
+- [x] Phase 11: Global Command Palette & Search
+  - [x] Install and configure `kbar` for global search
+  - [x] Build `KBarSearch` wrapper component with custom glassmorphism results
+  - [x] Register actions for navigation, theme toggle, and 400+ indicators
+  - [x] Integrate trigger button in global `Navbar` with keyboard shortcuts
+- [x] Phase 12: India Energy Dashboards & Vertical Data
+  - [x] Implement stacked area charts for **Capacity** and **Generation** (MU/MW units)
+  - [x] Create detailed sub-pages `/india/power` and `/india/generation`
+  - [x] Integrate "Renewables %" dynamic calculations in tooltips
+  - [x] Map political eras for India (1948–2026) to energy production trends
+  - [x] Update India dashboard grid with single-column clickable cards
+- [ ] Phase 13: Future Enhancements
+  - [ ] "Expand All / Collapse All" toggle for category sections on main dashboard
+  - [ ] Search/filter across indicators within the main category sections
+  - [ ] Additional country-specific dashboards (USA, China, etc.)
+  - [ ] Specialized charts for Inflation (CPI/WPI) and FDI flows
+  - [ ] Automated visual regression tests for responsive charts

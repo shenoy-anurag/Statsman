@@ -19,9 +19,16 @@ export async function fetchIndicatorData(
 
   if (useOffline) {
     try {
-      // Dynamically load the static JSON datastore at runtime.
-      // Using dynamic import prevents massive bundle loading times.
-      const localCache = (await import('../data/world-development-indicators-grouped.json')).default as any;
+      // Load the appropriate dataset based on the indicator code
+      let localCache: any;
+
+      if (indicatorCode === "PV.TER.DTHS") {
+        localCache = (await import('../data/terrorism-deaths-grouped.json')).default;
+      } else if (indicatorCode === "PV.TER.INCD") {
+        localCache = (await import('../data/terrorism-attacks-grouped.json')).default;
+      } else {
+        localCache = (await import('../data/world-development-indicators-grouped.json')).default;
+      }
 
       if (localCache && localCache[indicatorCode]) {
         const indicatorData = localCache[indicatorCode].data;

@@ -111,3 +111,8 @@ Citation guidance: Please credit all sources listed above. Data provided by thir
 | Data Fields | Entity, Code, Year, Fatalities, World region according to OWID |
 | File Name | terrorism-deaths.csv |
 
+### Articles & Media
+
+The trend in India during the 2010s, where the number of terrorist incidents saw fluctuations or a rise in certain areas while fatalities decreased, is primarily attributed to a shift in tactical focus by terrorists from high-casualty mass attacks to lower-intensity local violence, combined with significantly enhanced state capacity to prevent major strikes. 
+
+https://economictimes.indiatimes.com/news/defence/from-balakot-to-sindoor-inside-the-operations-that-made-terror-camps-fair-game/articleshow/123409568.cms?from=mdr

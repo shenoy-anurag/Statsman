@@ -3,7 +3,14 @@ export interface IndicatorConfig {
   name: string;
   shortName: string;
   caveat: string;
-  source: string;
+  source: {
+    url: string;
+    text: string;
+  };
+  citation: {
+    short: string;
+    full: string;
+  };
   type: string;
 }
 
@@ -13,7 +20,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "GDP growth (annual %)",
     shortName: "GDP Growth Rate",
     caveat: "Growth is calculated from constant price GDP year-over-year. Does not account for informal economies or inflation recalculation anomalies.",
-    source: "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG",
+    source: {
+      url: "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). GDP growth (annual %). World Development Indicators. https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG",
+      full: "World Bank. (2024). GDP growth (annual %). World Development Indicators. https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG",
+    },
     type: "percentage",
   },
   {
@@ -21,7 +35,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "GDP (current US$)",
     shortName: "GDP",
     caveat: "GDP measures formal economic activity and doesn't account for inequality, unpaid labor, or the informal sector prevalent in emerging markets.",
-    source: "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+    source: {
+      url: "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). GDP (current US$). World Development Indicators. https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+      full: "World Bank. (2024). GDP (current US$). World Development Indicators. https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+    },
     type: "absolute",
   },
   {
@@ -29,7 +50,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "GDP per capita (current US$)",
     shortName: "GDP per Capita",
     caveat: "Averages total economic output by population size. High wealth concentration and inequality can heavily distort this figure from average lived reality.",
-    source: "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+    source: {
+      url: "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). GDP per capita (current US$). World Development Indicators. https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+      full: "World Bank. (2024). GDP per capita (current US$). World Development Indicators. https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+    },
     type: "absolute",
   },
   {
@@ -37,7 +65,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "GNI per capita, Atlas method (current US$)",
     shortName: "GNI per Capita",
     caveat: "GNI accounts for income from abroad. The Atlas method smooths exchange rate fluctuations, but informal remittances are often underreported.",
-    source: "https://data.worldbank.org/indicator/NY.GNP.PCAP.CD",
+    source: {
+      url: "https://data.worldbank.org/indicator/NY.GNP.PCAP.CD",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). GNI per capita, Atlas method (current US$). World Development Indicators. https://data.worldbank.org/indicator/NY.GNP.PCAP.CD",
+      full: "World Bank. (2024). GNI per capita, Atlas method (current US$). World Development Indicators. https://data.worldbank.org/indicator/NY.GNP.PCAP.CD",
+    },
     type: "absolute",
   },
   {
@@ -45,7 +80,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Gross Savings (% of GNI)",
     shortName: "Gross Savings Rate",
     caveat: "Calculated as GNI minus total consumption. High savings rates can indicate capital accumulation potential, but may also reflect lack of domestic consumption.",
-    source: "https://data.worldbank.org/indicator/NY.GNS.ICTR.GN.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/NY.GNS.ICTR.GN.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Gross savings (% of GNI). World Development Indicators. https://data.worldbank.org/indicator/NY.GNS.ICTR.GN.ZS",
+      full: "World Bank. (2024). Gross savings (% of GNI). World Development Indicators. https://data.worldbank.org/indicator/NY.GNS.ICTR.GN.ZS",
+    },
     type: "percentage",
   },
   {
@@ -53,7 +95,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Poverty headcount ratio at national poverty lines",
     shortName: "National Poverty",
     caveat: "National poverty lines are defined differently by each country based on local economic conditions, making direct cross-country numerical comparisons statistically invalid.",
-    source: "https://data.worldbank.org/indicator/SI.POV.NAHC",
+    source: {
+      url: "https://data.worldbank.org/indicator/SI.POV.NAHC",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Poverty headcount ratio at national poverty lines. World Development Indicators. https://data.worldbank.org/indicator/SI.POV.NAHC",
+      full: "World Bank. (2024). Poverty headcount ratio at national poverty lines. World Development Indicators. https://data.worldbank.org/indicator/SI.POV.NAHC",
+    },
     type: "percentage",
   },
   {
@@ -61,7 +110,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Poverty headcount ratio at $3.65 a day (2017 PPP)",
     shortName: "Absolute Poverty",
     caveat: "Standardized metric for lower-middle-income countries using Purchasing Power Parity. Price fluctuations and localized inflation significantly impact real tracking.",
-    source: "https://data.worldbank.org/indicator/SI.POV.LMIC",
+    source: {
+      url: "https://data.worldbank.org/indicator/SI.POV.LMIC",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Poverty headcount ratio at $3.65 a day (2017 PPP). World Development Indicators. https://data.worldbank.org/indicator/SI.POV.LMIC",
+      full: "World Bank. (2024). Poverty headcount ratio at $3.65 a day (2017 PPP). World Development Indicators. https://data.worldbank.org/indicator/SI.POV.LMIC",
+    },
     type: "percentage",
   },
   {
@@ -69,7 +125,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Income share held by lowest 20%",
     shortName: "Bottom 20% Income",
     caveat: "Relies on rigorous household surveys which are frequently irregular or delayed in developing nations, leading to structural reporting lags.",
-    source: "https://data.worldbank.org/indicator/SI.DST.FRST.20",
+    source: {
+      url: "https://data.worldbank.org/indicator/SI.DST.FRST.20",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Income share held by lowest 20%. World Development Indicators. https://data.worldbank.org/indicator/SI.DST.FRST.20",
+      full: "World Bank. (2024). Income share held by lowest 20%. World Development Indicators. https://data.worldbank.org/indicator/SI.DST.FRST.20",
+    },
     type: "percentage",
   },
   {
@@ -77,7 +140,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Unemployment, total (% of total labor force)",
     shortName: "Unemployment",
     caveat: "Does not count discouraged workers who stopped looking for jobs, nor does it capture underemployment or extremely poor quality informal work.",
-    source: "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Unemployment, total (% of total labor force). World Development Indicators. https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
+      full: "World Bank. (2024). Unemployment, total (% of total labor force). World Development Indicators. https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
+    },
     type: "percentage",
   },
   {
@@ -85,7 +155,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Labor force participation rate, total (15+)",
     shortName: "Labor Force Part.",
     caveat: "Varies heavily based on cultural norms surrounding women in the workplace and shifts in the retirement or compulsory schooling ages.",
-    source: "https://data.worldbank.org/indicator/SL.TLF.CACT.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/SL.TLF.CACT.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Labor force participation rate, total (15+). World Development Indicators. https://data.worldbank.org/indicator/SL.TLF.CACT.ZS",
+      full: "World Bank. (2024). Labor force participation rate, total (15+). World Development Indicators. https://data.worldbank.org/indicator/SL.TLF.CACT.ZS",
+    },
     type: "percentage",
   },
   {
@@ -93,7 +170,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "School enrollment, primary (% gross)",
     shortName: "Primary Enrollment",
     caveat: "Gross enrollment can exceed 100% due to over-age / under-age students and grade repetition. Does not guarantee quality of education or daily attendance.",
-    source: "https://data.worldbank.org/indicator/SE.PRM.ENRR",
+    source: {
+      url: "https://data.worldbank.org/indicator/SE.PRM.ENRR",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). School enrollment, primary (% gross). World Development Indicators. https://data.worldbank.org/indicator/SE.PRM.ENRR",
+      full: "World Bank. (2024). School enrollment, primary (% gross). World Development Indicators. https://data.worldbank.org/indicator/SE.PRM.ENRR",
+    },
     type: "percentage",
   },
   {
@@ -101,7 +185,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Literacy rate, youth total (% of people ages 15-24)",
     shortName: "Youth Literacy",
     caveat: "Methodologies vary greatly; some nations use self-reporting while others use empirical testing. Usually lags behind rapid demographic shifts.",
-    source: "https://data.worldbank.org/indicator/SE.ADT.1524.LT.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/SE.ADT.1524.LT.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Literacy rate, youth total (% of people ages 15-24). World Development Indicators. https://data.worldbank.org/indicator/SE.ADT.1524.LT.ZS",
+      full: "World Bank. (2024). Literacy rate, youth total (% of people ages 15-24). World Development Indicators. https://data.worldbank.org/indicator/SE.ADT.1524.LT.ZS",
+    },
     type: "percentage",
   },
   {
@@ -109,7 +200,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Life expectancy at birth, total (years)",
     shortName: "Life Expectancy",
     caveat: "Highly sensitive to infant mortality rates. Rapid changes in medical infrastructure or epidemic outbreaks can radically alter trajectory estimates.",
-    source: "https://data.worldbank.org/indicator/SP.DYN.LE00.IN",
+    source: {
+      url: "https://data.worldbank.org/indicator/SP.DYN.LE00.IN",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Life expectancy at birth, total (years). World Development Indicators. https://data.worldbank.org/indicator/SP.DYN.LE00.IN",
+      full: "World Bank. (2024). Life expectancy at birth, total (years). World Development Indicators. https://data.worldbank.org/indicator/SP.DYN.LE00.IN",
+    },
     type: "absolute",
   },
   {
@@ -117,7 +215,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Mortality rate, under-5 (per 1,000 live births)",
     shortName: "Under-5 Mortality",
     caveat: "Relies on civil registration systems which are often incomplete in lower-income areas, prompting researchers to use demographic models and estimates.",
-    source: "https://data.worldbank.org/indicator/SH.DYN.MORT",
+    source: {
+      url: "https://data.worldbank.org/indicator/SH.DYN.MORT",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Mortality rate, under-5 (per 1,000 live births). World Development Indicators. https://data.worldbank.org/indicator/SH.DYN.MORT",
+      full: "World Bank. (2024). Mortality rate, under-5 (per 1,000 live births). World Development Indicators. https://data.worldbank.org/indicator/SH.DYN.MORT",
+    },
     type: "absolute",
   },
   {
@@ -125,7 +230,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Population, total",
     shortName: "Population",
     caveat: "Relies on decennial census data and mid-year estimates. Margin of error expands the further away a country is from its last comprehensive physical census.",
-    source: "https://data.worldbank.org/indicator/SP.POP.TOTL",
+    source: {
+      url: "https://data.worldbank.org/indicator/SP.POP.TOTL",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Population, total. World Development Indicators. https://data.worldbank.org/indicator/SP.POP.TOTL",
+      full: "World Bank. (2024). Population, total. World Development Indicators. https://data.worldbank.org/indicator/SP.POP.TOTL",
+    },
     type: "absolute",
   },
   {
@@ -133,7 +245,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Access to electricity (% of population)",
     shortName: "Electricity Access",
     caveat: "Measures access to the grid but does not account for reliability, brownouts, or affordability of the power actually provided to households.",
-    source: "https://data.worldbank.org/indicator/EG.ELC.ACCS.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/EG.ELC.ACCS.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Access to electricity (% of population). World Development Indicators. https://data.worldbank.org/indicator/EG.ELC.ACCS.ZS",
+      full: "World Bank. (2024). Access to electricity (% of population). World Development Indicators. https://data.worldbank.org/indicator/EG.ELC.ACCS.ZS",
+    },
     type: "percentage",
   },
   {
@@ -141,7 +260,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Individuals using the Internet (% of population)",
     shortName: "Internet Users",
     caveat: "Definition of 'internet user' varies significantly by country, often relying on self-reporting or limited surveys, leading to potential overstatement of actual access.",
-    source: "https://data.worldbank.org/indicator/IT.NET.USER.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/IT.NET.USER.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Individuals using the Internet (% of population). World Development Indicators. https://data.worldbank.org/indicator/IT.NET.USER.ZS",
+      full: "World Bank. (2024). Individuals using the Internet (% of population). World Development Indicators. https://data.worldbank.org/indicator/IT.NET.USER.ZS",
+    },
     type: "percentage",
   },
   {
@@ -149,7 +275,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Forest area (% of land area)",
     shortName: "Forest Cover",
     caveat: "Definition of 'forest' can include commercial plantations depending on the reporting body, sometimes masking real old-growth deforestation.",
-    source: "https://data.worldbank.org/indicator/AG.LND.FRST.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/AG.LND.FRST.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Forest area (% of land area). World Development Indicators. https://data.worldbank.org/indicator/AG.LND.FRST.ZS",
+      full: "World Bank. (2024). Forest area (% of land area). World Development Indicators. https://data.worldbank.org/indicator/AG.LND.FRST.ZS",
+    },
     type: "percentage",
   },
   {
@@ -157,7 +290,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Exports of goods and services (% of GDP)",
     shortName: "Exports",
     caveat: "High percentages indicate deep integration into the global supply chain but also signify structural vulnerability to global market shocks.",
-    source: "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Exports of goods and services (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
+      full: "World Bank. (2024). Exports of goods and services (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
+    },
     type: "percentage",
   },
   {
@@ -165,7 +305,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Foreign direct investment, net inflows (BoP)",
     shortName: "FDI Inflows",
     caveat: "Represents net inflows (new investment minus disinvestment). Subject to massive volatility caused by singular mega-deals or sudden geopolitical shifts.",
-    source: "https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
+    source: {
+      url: "https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Foreign direct investment, net inflows (BoP). World Development Indicators. https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
+      full: "World Bank. (2024). Foreign direct investment, net inflows (BoP). World Development Indicators. https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
+    },
     type: "absolute",
   },
 
@@ -175,7 +322,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Inflation, consumer prices (annual %)",
     shortName: "Inflation Rate",
     caveat: "CPI baskets differ across countries. Administered prices, energy subsidies, and base-year effects can all distort the headline figure.",
-    source: "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
+    source: {
+      url: "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Inflation, consumer prices (annual %). World Development Indicators. https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
+      full: "World Bank. (2024). Inflation, consumer prices (annual %). World Development Indicators. https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
+    },
     type: "percentage",
   },
   {
@@ -183,7 +337,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Gross capital formation (% of GDP)",
     shortName: "Capital Formation (% GDP)",
     caveat: "Includes fixed assets and inventory changes. High ratios may reflect overinvestment or construction booms that correct sharply.",
-    source: "https://data.worldbank.org/indicator/NE.GDI.TOTL.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/NE.GDI.TOTL.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Gross capital formation (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/NE.GDI.TOTL.ZS",
+      full: "World Bank. (2024). Gross capital formation (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/NE.GDI.TOTL.ZS",
+    },
     type: "percentage",
   },
   {
@@ -191,7 +352,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Gross capital formation (current US$)",
     shortName: "Capital Formation (US$)",
     caveat: "Nominal value subject to exchange-rate swings. Does not convey efficiency or quality of the investments made.",
-    source: "https://data.worldbank.org/indicator/NE.GDI.TOTL.CD",
+    source: {
+      url: "https://data.worldbank.org/indicator/NE.GDI.TOTL.CD",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Gross capital formation (current US$). World Development Indicators. https://data.worldbank.org/indicator/NE.GDI.TOTL.CD",
+      full: "World Bank. (2024). Gross capital formation (current US$). World Development Indicators. https://data.worldbank.org/indicator/NE.GDI.TOTL.CD",
+    },
     type: "absolute",
   },
   {
@@ -199,7 +367,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Gross fixed capital formation (annual % growth)",
     shortName: "Fixed Capital Growth",
     caveat: "Tracks long-term physical asset investment growth. Large government projects or real-estate bubbles can inflate this figure temporarily.",
-    source: "https://data.worldbank.org/indicator/NE.GDI.FTOT.KD.ZG",
+    source: {
+      url: "https://data.worldbank.org/indicator/NE.GDI.FTOT.KD.ZG",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Gross fixed capital formation (annual % growth). World Development Indicators. https://data.worldbank.org/indicator/NE.GDI.FTOT.KD.ZG",
+      full: "World Bank. (2024). Gross fixed capital formation (annual % growth). World Development Indicators. https://data.worldbank.org/indicator/NE.GDI.FTOT.KD.ZG",
+    },
     type: "percentage",
   },
   {
@@ -207,7 +382,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Current account balance (% of GDP)",
     shortName: "Current Account Balance",
     caveat: "Persistent deficits signal reliance on foreign capital; persistent surpluses may reflect suppressed domestic consumption.",
-    source: "https://data.worldbank.org/indicator/BN.CAB.XOKA.GD.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/BN.CAB.XOKA.GD.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Current account balance (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/BN.CAB.XOKA.GD.ZS",
+      full: "World Bank. (2024). Current account balance (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/BN.CAB.XOKA.GD.ZS",
+    },
     type: "percentage",
   },
 
@@ -217,7 +399,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Bank capital to assets ratio (%)",
     shortName: "Bank Capital Ratio",
     caveat: "Higher ratios suggest resilience, but can also indicate banks are not lending enough. Off-balance-sheet exposures are not captured.",
-    source: "https://data.worldbank.org/indicator/FB.BNK.CAPA.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/FB.BNK.CAPA.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Bank capital to assets ratio (%). World Development Indicators. https://data.worldbank.org/indicator/FB.BNK.CAPA.ZS",
+      full: "World Bank. (2024). Bank capital to assets ratio (%). World Development Indicators. https://data.worldbank.org/indicator/FB.BNK.CAPA.ZS",
+    },
     type: "percentage",
   },
   {
@@ -225,7 +414,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Bank nonperforming loans to total gross loans (%)",
     shortName: "NPL Ratio",
     caveat: "Definitions of 'nonperforming' vary across jurisdictions. Banks may restructure loans to avoid classification, masking true asset quality.",
-    source: "https://data.worldbank.org/indicator/FB.AST.NPER.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/FB.AST.NPER.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Bank nonperforming loans to total gross loans (%). World Development Indicators. https://data.worldbank.org/indicator/FB.AST.NPER.ZS",
+      full: "World Bank. (2024). Bank nonperforming loans to total gross loans (%). World Development Indicators. https://data.worldbank.org/indicator/FB.AST.NPER.ZS",
+    },
     type: "percentage",
   },
   {
@@ -233,7 +429,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Lending interest rate (%)",
     shortName: "Lending Rate",
     caveat: "Represents the rate at which banks lend to prime customers. Actual rates for SMEs and consumers can be significantly higher.",
-    source: "https://data.worldbank.org/indicator/FR.INR.LEND",
+    source: {
+      url: "https://data.worldbank.org/indicator/FR.INR.LEND",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Lending interest rate (%). World Development Indicators. https://data.worldbank.org/indicator/FR.INR.LEND",
+      full: "World Bank. (2024). Lending interest rate (%). World Development Indicators. https://data.worldbank.org/indicator/FR.INR.LEND",
+    },
     type: "percentage",
   },
 
@@ -243,7 +446,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Agriculture, forestry, and fishing, value added (annual % growth)",
     shortName: "Agriculture Growth",
     caveat: "Highly weather-dependent. Policy changes such as land reform or subsidy shifts can create volatile year-over-year swings.",
-    source: "https://data.worldbank.org/indicator/NV.AGR.TOTL.KD.ZG",
+    source: {
+      url: "https://data.worldbank.org/indicator/NV.AGR.TOTL.KD.ZG",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Agriculture, forestry, and fishing, value added (annual % growth). World Development Indicators. https://data.worldbank.org/indicator/NV.AGR.TOTL.KD.ZG",
+      full: "World Bank. (2024). Agriculture, forestry, and fishing, value added (annual % growth). World Development Indicators. https://data.worldbank.org/indicator/NV.AGR.TOTL.KD.ZG",
+    },
     type: "percentage",
   },
   {
@@ -251,7 +461,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Manufacturing, value added (% of GDP)",
     shortName: "Manufacturing (% GDP)",
     caveat: "Declining share may reflect deindustrialization or simply that services are growing faster. Does not capture informal manufacturing.",
-    source: "https://data.worldbank.org/indicator/NV.IND.MANF.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/NV.IND.MANF.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Manufacturing, value added (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/NV.IND.MANF.ZS",
+      full: "World Bank. (2024). Manufacturing, value added (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/NV.IND.MANF.ZS",
+    },
     type: "percentage",
   },
   {
@@ -259,7 +476,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Services, value added (% of GDP)",
     shortName: "Services (% GDP)",
     caveat: "High services share correlates with advanced economies, but can also reflect premature deindustrialization in developing nations.",
-    source: "https://data.worldbank.org/indicator/NV.SRV.TOTL.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/NV.SRV.TOTL.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Services, value added (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/NV.SRV.TOTL.ZS",
+      full: "World Bank. (2024). Services, value added (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/NV.SRV.TOTL.ZS",
+    },
     type: "percentage",
   },
 
@@ -269,7 +493,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Exports of goods and services (annual % growth)",
     shortName: "Export Growth",
     caveat: "Growth rates are volatile and highly sensitive to global recessions, commodity price swings, and trade policy changes.",
-    source: "https://data.worldbank.org/indicator/NE.EXP.GNFS.KD.ZG",
+    source: {
+      url: "https://data.worldbank.org/indicator/NE.EXP.GNFS.KD.ZG",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Exports of goods and services (annual % growth). World Development Indicators. https://data.worldbank.org/indicator/NE.EXP.GNFS.KD.ZG",
+      full: "World Bank. (2024). Exports of goods and services (annual % growth). World Development Indicators. https://data.worldbank.org/indicator/NE.EXP.GNFS.KD.ZG",
+    },
     type: "percentage",
   },
   {
@@ -277,7 +508,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Customs and other import duties (current LCU)",
     shortName: "Import Duties",
     caveat: "Reported in local currency, making cross-country comparison difficult without conversion. Reflects protectionist tendency and trade-tax reliance.",
-    source: "https://data.worldbank.org/indicator/GC.TAX.IMPT.CN",
+    source: {
+      url: "https://data.worldbank.org/indicator/GC.TAX.IMPT.CN",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Customs and other import duties (current LCU). World Development Indicators. https://data.worldbank.org/indicator/GC.TAX.IMPT.CN",
+      full: "World Bank. (2024). Customs and other import duties (current LCU). World Development Indicators. https://data.worldbank.org/indicator/GC.TAX.IMPT.CN",
+    },
     type: "absolute",
   },
   {
@@ -285,7 +523,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Patent applications, residents",
     shortName: "Resident Patents",
     caveat: "Volume does not equate to quality. Some countries incentivize patent filing through subsidies, inflating counts without proportional innovation.",
-    source: "https://data.worldbank.org/indicator/IP.PAT.RESD",
+    source: {
+      url: "https://data.worldbank.org/indicator/IP.PAT.RESD",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Patent applications, residents. World Development Indicators. https://data.worldbank.org/indicator/IP.PAT.RESD",
+      full: "World Bank. (2024). Patent applications, residents. World Development Indicators. https://data.worldbank.org/indicator/IP.PAT.RESD",
+    },
     type: "absolute",
   },
   {
@@ -293,7 +538,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Research and development expenditure (% of GDP)",
     shortName: "R&D Spending",
     caveat: "Includes government, business, and academic R&D. Military R&D is often excluded or classified, understating true national effort.",
-    source: "https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Research and development expenditure (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS",
+      full: "World Bank. (2024). Research and development expenditure (% of GDP). World Development Indicators. https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS",
+    },
     type: "percentage",
   },
 
@@ -303,7 +555,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Gini index",
     shortName: "Gini Index",
     caveat: "The gold standard for inequality measurement, but relies on household survey data that is infrequent in many developing nations.",
-    source: "https://data.worldbank.org/indicator/SI.POV.GINI",
+    source: {
+      url: "https://data.worldbank.org/indicator/SI.POV.GINI",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Gini index. World Development Indicators. https://data.worldbank.org/indicator/SI.POV.GINI",
+      full: "World Bank. (2024). Gini index. World Development Indicators. https://data.worldbank.org/indicator/SI.POV.GINI",
+    },
     type: "absolute",
   },
   {
@@ -311,7 +570,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Labor force participation rate for ages 15-24, female (%) (national estimate)",
     shortName: "Youth LFP (Female)",
     caveat: "Cultural norms, educational enrollment, and survey methodology differences limit cross-country comparability.",
-    source: "https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.FE.NE.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.FE.NE.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Labor force participation rate for ages 15-24, female (%) (national estimate). World Development Indicators. https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.FE.NE.ZS",
+      full: "World Bank. (2024). Labor force participation rate for ages 15-24, female (%) (national estimate). World Development Indicators. https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.FE.NE.ZS",
+    },
     type: "percentage",
   },
   {
@@ -319,7 +585,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Labor force participation rate for ages 15-24, male (%) (national estimate)",
     shortName: "Youth LFP (Male)",
     caveat: "Declining rates may reflect higher educational attainment rather than discouragement. Military conscription affects some countries.",
-    source: "https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.MA.NE.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.MA.NE.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Labor force participation rate for ages 15-24, male (%) (national estimate). World Development Indicators. https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.MA.NE.ZS",
+      full: "World Bank. (2024). Labor force participation rate for ages 15-24, male (%) (national estimate). World Development Indicators. https://data.worldbank.org/indicator/SL.TLF.ACTI.1524.MA.NE.ZS",
+    },
     type: "percentage",
   },
   {
@@ -327,7 +600,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Prevalence of undernourishment (% of population)",
     shortName: "Undernourishment",
     caveat: "Based on food availability and distribution models. Does not capture micronutrient deficiencies or diet quality.",
-    source: "https://data.worldbank.org/indicator/SN.ITK.DEFC.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/SN.ITK.DEFC.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Prevalence of undernourishment (% of population). World Development Indicators. https://data.worldbank.org/indicator/SN.ITK.DEFC.ZS",
+      full: "World Bank. (2024). Prevalence of undernourishment (% of population). World Development Indicators. https://data.worldbank.org/indicator/SN.ITK.DEFC.ZS",
+    },
     type: "percentage",
   },
 
@@ -337,7 +617,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Access to clean fuels and technologies for cooking (% of population)",
     shortName: "Clean Cooking Access",
     caveat: "Self-reported data; actual usage patterns may differ from access. Does not capture seasonal or regional variation within countries.",
-    source: "https://data.worldbank.org/indicator/EG.CFT.ACCS.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/EG.CFT.ACCS.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Access to clean fuels and technologies for cooking (% of population). World Development Indicators. https://data.worldbank.org/indicator/EG.CFT.ACCS.ZS",
+      full: "World Bank. (2024). Access to clean fuels and technologies for cooking (% of population). World Development Indicators. https://data.worldbank.org/indicator/EG.CFT.ACCS.ZS",
+    },
     type: "percentage",
   },
   {
@@ -345,7 +632,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "People using at least basic drinking water services (% of population)",
     shortName: "Basic Water Access",
     caveat: "'Basic' is a minimum service level. It does not guarantee water safety, reliability, or proximity of the source.",
-    source: "https://data.worldbank.org/indicator/SH.H2O.BASW.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/SH.H2O.BASW.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). People using at least basic drinking water services (% of population). World Development Indicators. https://data.worldbank.org/indicator/SH.H2O.BASW.ZS",
+      full: "World Bank. (2024). People using at least basic drinking water services (% of population). World Development Indicators. https://data.worldbank.org/indicator/SH.H2O.BASW.ZS",
+    },
     type: "percentage",
   },
   {
@@ -353,7 +647,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Electric power transmission and distribution losses (% of output)",
     shortName: "Power Grid Losses",
     caveat: "High losses can indicate aging infrastructure, theft, or poor governance. Technical vs. commercial losses are not separated.",
-    source: "https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS",
+    source: {
+      url: "https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Electric power transmission and distribution losses (% of output). World Development Indicators. https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS",
+      full: "World Bank. (2024). Electric power transmission and distribution losses (% of output). World Development Indicators. https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS",
+    },
     type: "percentage",
   },
   {
@@ -361,7 +662,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "CO2 emissions (Mt CO2e)",
     shortName: "CO₂ Emissions",
     caveat: "Production-based accounting; does not attribute emissions embedded in imported goods to the consuming country.",
-    source: "https://data.worldbank.org/indicator/EN.GHG.CO2.MT.CE.AR5",
+    source: {
+      url: "https://data.worldbank.org/indicator/EN.GHG.CO2.MT.CE.AR5",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). CO2 emissions (Mt CO2e). World Development Indicators. https://data.worldbank.org/indicator/EN.GHG.CO2.MT.CE.AR5",
+      full: "World Bank. (2024). CO2 emissions (Mt CO2e). World Development Indicators. https://data.worldbank.org/indicator/EN.GHG.CO2.MT.CE.AR5",
+    },
     type: "absolute",
   },
   {
@@ -369,7 +677,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "CO2 intensity of GDP (kg CO2e per constant 2015 US$ of GDP)",
     shortName: "Carbon Intensity",
     caveat: "Declining intensity can mask rising absolute emissions if GDP is growing fast. Sector mix heavily influences the ratio.",
-    source: "https://data.worldbank.org/indicator/EN.GHG.CO2.RT.GDP.KD",
+    source: {
+      url: "https://data.worldbank.org/indicator/EN.GHG.CO2.RT.GDP.KD",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). CO2 intensity of GDP (kg CO2e per constant 2015 US$ of GDP). World Development Indicators. https://data.worldbank.org/indicator/EN.GHG.CO2.RT.GDP.KD",
+      full: "World Bank. (2024). CO2 intensity of GDP (kg CO2e per constant 2015 US$ of GDP). World Development Indicators. https://data.worldbank.org/indicator/EN.GHG.CO2.RT.GDP.KD",
+    },
     type: "absolute",
   },
 
@@ -379,7 +694,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Age dependency ratio (% of working-age population)",
     shortName: "Dependency Ratio",
     caveat: "Assumes 15–64 as working age, which varies by country. Does not reflect actual labor force participation or retirement ages.",
-    source: "https://data.worldbank.org/indicator/SP.POP.DPND",
+    source: {
+      url: "https://data.worldbank.org/indicator/SP.POP.DPND",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Age dependency ratio (% of working-age population). World Development Indicators. https://data.worldbank.org/indicator/SP.POP.DPND",
+      full: "World Bank. (2024). Age dependency ratio (% of working-age population). World Development Indicators. https://data.worldbank.org/indicator/SP.POP.DPND",
+    },
     type: "percentage",
   },
   {
@@ -387,7 +709,14 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Age dependency ratio, old (% of working-age population)",
     shortName: "Old-Age Dependency",
     caveat: "Rising ratios signal pension and healthcare cost pressures. Does not account for seniors who continue to work.",
-    source: "https://data.worldbank.org/indicator/SP.POP.DPND.OL",
+    source: {
+      url: "https://data.worldbank.org/indicator/SP.POP.DPND.OL",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Age dependency ratio, old (% of working-age population). World Development Indicators. https://data.worldbank.org/indicator/SP.POP.DPND.OL",
+      full: "World Bank. (2024). Age dependency ratio, old (% of working-age population). World Development Indicators. https://data.worldbank.org/indicator/SP.POP.DPND.OL",
+    },
     type: "percentage",
   },
   {
@@ -395,8 +724,46 @@ export const INDICATORS: IndicatorConfig[] = [
     name: "Age dependency ratio, young (% of working-age population)",
     shortName: "Youth Dependency",
     caveat: "High ratios can indicate a demographic dividend opportunity or an education/employment challenge, depending on policy context.",
-    source: "https://data.worldbank.org/indicator/SP.POP.DPND.YG",
+    source: {
+      url: "https://data.worldbank.org/indicator/SP.POP.DPND.YG",
+      text: "The World Bank: World Development Indicators",
+    },
+    citation: {
+      short: "World Bank. (2024). Age dependency ratio, young (% of working-age population). World Development Indicators. https://data.worldbank.org/indicator/SP.POP.DPND.YG",
+      full: "World Bank. (2024). Age dependency ratio, young (% of working-age population). World Development Indicators. https://data.worldbank.org/indicator/SP.POP.DPND.YG",
+    },
     type: "percentage",
+  },
+  // ── Political Violence & Crimes ──────────────────────────────────
+  {
+    id: "PV.TER.DTHS",
+    name: "Terrorism Deaths",
+    shortName: "Terrorism Deaths",
+    caveat: "Data includes deaths from terrorist incidents. Reporting may vary by region and conflict intensity.",
+    source: {
+      url: "https://ourworldindata.org/terrorism",
+      text: "START / Our World in Data",
+    },
+    citation: {
+      short: "National Consortium for the Study of Terrorism and Responses to Terrorism (START) (2022) – with major processing by Our World in Data",
+      full: "National Consortium for the Study of Terrorism and Responses to Terrorism (START) (2022) – with major processing by Our World in Data. “Fatalities” [dataset]. National Consortium for the Study of Terrorism and Responses to Terrorism (START), “Global Terrorism Database”; National Consortium for the Study of Terrorism and Responses to Terrorism (START), “Global Terrorism Database (2020-2021)” [original data].",
+    },
+    type: "absolute",
+  },
+  {
+    id: "PV.TER.INCD",
+    name: "Terrorist Attacks",
+    shortName: "Terrorist Attacks",
+    caveat: "Number of recorded terrorist incidents. Definitions of terrorism and reporting consistency can differ across countries.",
+    source: {
+      url: "https://ourworldindata.org/terrorism",
+      text: "START / Our World in Data",
+    },
+    citation: {
+      short: "National Consortium for the Study of Terrorism and Responses to Terrorism (START) (2022) – with major processing by Our World in Data",
+      full: "National Consortium for the Study of Terrorism and Responses to Terrorism (START) (2022) – with major processing by Our World in Data. “Fatalities” [dataset]. National Consortium for the Study of Terrorism and Responses to Terrorism (START), “Global Terrorism Database”; National Consortium for the Study of Terrorism and Responses to Terrorism (START), “Global Terrorism Database (2020-2021)” [original data].",
+    },
+    type: "absolute",
   },
 ];
 
@@ -531,6 +898,15 @@ export const INDICATOR_CATEGORIES: IndicatorCategory[] = [
       "SP.POP.DPND",
       "SP.POP.DPND.OL",
       "SP.POP.DPND.YG",
+    ],
+  },
+  {
+    id: "political-violence",
+    title: "Political Violence & Crimes",
+    description: "Impact of terrorism and political instability on national security.",
+    indicators: [
+      "PV.TER.DTHS",
+      "PV.TER.INCD",
     ],
   },
 ];

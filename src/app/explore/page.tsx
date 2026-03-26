@@ -65,13 +65,19 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
           </div>
 
           {indicatorConfig?.caveat && (
-            <div className="bg-muted/30 border border-muted/60 p-5 rounded-none flex items-start gap-4 animate-in fade-in duration-500 delay-300 fill-mode-both relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <span className="text-2xl mt-0.5 relative z-10">💡</span>
+            <div className="p-6 bg-muted/30 border border-muted/60 rounded-none text-sm text-muted-foreground flex flex-col gap-2">
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
                 <strong className="text-foreground">Analytical Context:</strong> {indicatorConfig.caveat}
               </p>
-              <div className="text-xs text-muted-foreground/60 w-full text-right absolute bottom-2 right-4">Source: World Bank</div>
+              <div className="flex flex-col gap-1 mt-2">
+                <p className="text-xs text-muted-foreground/50 leading-tight">
+                  <span className="font-semibold tracking-tighter opacity-70 mr-1">Source:</span>
+                  {indicatorConfig.citation.short}
+                </p>
+                <p className="italic text-xs text-muted-foreground/70 opacity-80">
+                  <a href={indicatorConfig.source.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline decoration-dotted underline-offset-2">{indicatorConfig.source.text}</a>
+                </p>
+              </div>
             </div>
           )}
 

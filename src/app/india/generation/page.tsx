@@ -1,4 +1,4 @@
-import { PowerGenerationChart } from "@/components/PowerGenerationChart";
+import { PowerGenerationChart } from "@/components/visualizations/PowerGenerationChart";
 import { ChevronLeft, Info, ExternalLink, Calendar, Zap, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { PaperTexture } from "@/components/PaperTexture";
@@ -36,7 +36,7 @@ export default function GenerationPage() {
                 Production Stats (MU)
               </div>
             </div>
-            <div className="w-full flex-grow relative min-h-[450px]">
+            <div className="w-full flex-grow relative min-h-[550px]">
               <PowerGenerationChart />
             </div>
             <div className="mt-6 pt-6 border-t border-border/20 text-sm text-muted-foreground flex flex-col gap-2 leading-relaxed">
