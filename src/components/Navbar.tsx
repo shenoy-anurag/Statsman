@@ -54,7 +54,7 @@ export function Navbar() {
           <nav className="hidden md:flex h-full items-stretch gap-0 text-sm font-medium">
             <button
               onClick={() => query.toggle()}
-              className="flex h-full w-14 items-center justify-center rounded-none hover:bg-muted/70 text-muted-foreground hover:text-foreground transition-all group border-r border-border/20"
+              className="flex h-full w-14 items-center justify-center rounded-none hover:bg-muted/70 text-muted-foreground hover:text-foreground transition-all group"
               aria-label="Search"
             >
               <Search className="h-[1.1rem] w-[1.1rem]" />

@@ -25,6 +25,7 @@ import {
   BarChart3,
   Search,
   Train,
+  Zap,
 } from "lucide-react";
 
 
@@ -76,6 +77,25 @@ export function KBarSearchComponent({ children }: { children: React.ReactNode })
       keywords: "india railways electrification transport",
       perform: () => router.push("/india/railways"),
       icon: <Train className="w-5 h-5 flex-shrink-0" />,
+      section: "India Dashboard",
+    },
+    {
+      id: "india-power",
+      name: "India Power Installed Capacity",
+      shortcut: ["p"],
+      keywords: "india power electricity solar wind coal nuclear installed capacity",
+      perform: () => router.push("/india/power"),
+      icon: <Sun className="w-5 h-5 flex-shrink-0" />,
+      section: "India Dashboard",
+    },
+
+    {
+      id: "india-generation",
+      name: "India Power Generation",
+      shortcut: ["g"],
+      keywords: "india power electricity generation production mu gwh solar wind coal nuclear",
+      perform: () => router.push("/india/generation"),
+      icon: <Zap className="w-5 h-5 flex-shrink-0" />,
       section: "India Dashboard",
     },
     {

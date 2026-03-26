@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { IndicatorChart } from "@/components/IndicatorChart";
 import { RailwayElectrificationChart } from "@/components/RailwayElectrificationChart";
+import { PowerCapacityChart } from "@/components/PowerCapacityChart";
+import { PowerGenerationChart } from "@/components/PowerGenerationChart";
+
 import { getMergedChartData, MergedDataPoint } from "@/lib/data-merger";
 import { INDICATORS_MAP } from "@/constants/indicators";
 import { TrainIcon, SunIcon, ChartSplineIcon, ArrowUpRight } from "lucide-react";
@@ -17,9 +20,11 @@ export default async function IndiaDashboard() {
   const indiaIndicators = [
     "NY.GDP.MKTP.CD",      // GDP
     "NY.GDP.PCAP.CD",      // GDP per capita
+    "FP.CPI.TOTL.ZG",      // Inflation, CPI
     "SP.POP.TOTL",         // Population
     "EG.ELC.ACCS.ZS",      // Electricity access
   ];
+
 
   const chartsData = await Promise.all(
     indiaIndicators.map(async (indicatorCode) => {
@@ -103,6 +108,49 @@ export default async function IndiaDashboard() {
             </div>
           </div>
         </Link>
+
+        {/* Specialized Power Installed Capacity Chart */}
+        <Link
+          href="/india/power"
+          className="flex flex-col h-full group/link"
+        >
+          <div
+            className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col group/chart overflow-hidden relative border border-transparent"
+            style={{ animationDelay: "200ms" }}
+          >
+            <PaperTexture />
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-xl font-semibold group-hover/link:text-primary transition-colors tracking-tight">Power Installed Capacity</h2>
+              <ArrowUpRight className="h-5 w-5 opacity-0 group-hover/chart:opacity-100 group-hover/chart:translate-x-1 group-hover/chart:-translate-y-1 transition-all text-primary" />
+            </div>
+            <div className="w-full flex-grow relative min-h-[300px]">
+              <PowerCapacityChart />
+            </div>
+          </div>
+        </Link>
+
+        {/* Specialized Power Generation Chart */}
+        <Link
+          href="/india/generation"
+          className="flex flex-col h-full group/link"
+        >
+          <div
+            className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col group/chart overflow-hidden relative border border-transparent"
+            style={{ animationDelay: "300ms" }}
+          >
+            <PaperTexture />
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-xl font-semibold group-hover/link:text-primary transition-colors tracking-tight">Power Generation (Production)</h2>
+              <ArrowUpRight className="h-5 w-5 opacity-0 group-hover/chart:opacity-100 group-hover/chart:translate-x-1 group-hover/chart:-translate-y-1 transition-all text-primary" />
+            </div>
+            <div className="w-full flex-grow relative min-h-[300px]">
+              <PowerGenerationChart />
+            </div>
+          </div>
+        </Link>
+
+
+
 
         {/* Standard World Bank Indicators */}
         {chartsData.map((item, index) => {

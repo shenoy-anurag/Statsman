@@ -85,5 +85,29 @@ https://en.wikipedia.org/wiki/Central_Organisation_for_Railway_Electrification#c
 ### Power Generation
 https://iced.niti.gov.in/energy/electricity/generation/power-generation
 
+FY 2025-26 data is updated as on January'26.
+Source: MNRE & CEA
+
 ### Power Installed Capacity
 https://iced.niti.gov.in/energy/electricity/generation/capacity
+
+FY 2025-26 data is updated as on January'26.
+Source: MNRE & CEA
+
+## Topic: Terrorism & Crime
+
+### Terrorism
+Source and citation
+Data sources:
+[National Consortium for the Study of Terrorism and Responses to Terrorism (START)](https://www.start.umd.edu/gtd/) (2022) Our World in Data – with major processing by Our World in Data
+
+Citation guidance: Please credit all sources listed above. Data provided by third-party sources through Our World in Data remains subject to the original providers' license terms.
+
+| Field | Value |
+|-------------|-------------|
+| URL | https://ourworldindata.org/terrorism |
+| Published On | 2021 |
+| Updated On | 2021 |
+| Data Fields | Entity, Code, Year, Fatalities, World region according to OWID |
+| File Name | terrorism-deaths.csv |
+
