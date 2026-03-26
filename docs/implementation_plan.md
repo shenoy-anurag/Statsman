@@ -98,7 +98,6 @@ Create a highly interactive and stunning web application to visualize economic a
 - Implemented dedicated detail pages for **Power Installed Capacity** (`/india/power`) and **Power Generation** (`/india/generation`).
 - Integrated "Renewables %" real-time calculation and political era overlays for all energy production metrics.
 - Sourced and documented granular data from MNRE and CEA (Central Electricity Authority).
-- Updated the India Dashboard layout with clickable, single-column cards linking to these specialized energy views.
 
 ## Verification Plan
 

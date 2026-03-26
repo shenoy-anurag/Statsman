@@ -49,6 +49,7 @@ export default async function Home(props: { searchParams: Promise<{ indicator?: 
           <div className="bg-card/40 backdrop-blur-md md:border md:border-border/50 rounded-none md:p-6 min-h-[500px] animate-in fade-in slide-in-from-right-8 duration-500 delay-150 fill-mode-both w-full overflow-hidden">
             <PaperTexture />
             <h3 className="text-xl font-bold tracking-tight p-2 md:p-0 mb-4">{indicatorConfig?.name || indicatorCode}</h3>
+            <h4 className="text-md font-regular text-muted-foreground tracking-tight p-2 md:p-0 mb-4">{indicatorConfig?.subtitle || ""}</h4>
             {countryCodes.length > 0 ? (
               <IndicatorChart
                 data={data}
