@@ -6,7 +6,7 @@ import { PowerGenerationChart } from "@/components/visualizations/PowerGeneratio
 
 import { getMergedChartData, MergedDataPoint } from "@/lib/data-merger";
 import { INDICATORS_MAP } from "@/constants/indicators";
-import { TrainIcon, SunIcon, ChartSplineIcon, ArrowUpRight } from "lucide-react";
+import { ChartSplineIcon, ArrowUpRight, BeakerIcon, UniversityIcon } from "lucide-react";
 import SvgIcon from "@/components/icons/svg-icon";
 import { PaperTexture } from "@/components/PaperTexture";
 import startupDataRaw from "@/data/india-startup-yearwise-count.json";
@@ -196,11 +196,19 @@ export default async function IndiaDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
               <span className="text-2xl"><ChartSplineIcon /></span>
-              <span className="font-medium">Inflation Rate & Price Indices</span>
+              <span className="font-medium">FDI Net Inflows, especially Manufacturing</span>
             </div>
             <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
-              <span className="text-2xl"><SunIcon /></span>
-              <span className="font-medium">Renewable Energy Capacity</span>
+              <span className="text-2xl"><BeakerIcon /></span>
+              <span className="font-medium">Patent Filing & Indicators relating to R&D</span>
+            </div>
+            <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
+              <span className="text-2xl"><ChartSplineIcon /></span>
+              <span className="font-medium">Break-up of the GDP in terms of Manufacturing, Services and Agriculture</span>
+            </div>
+            <div className="flex items-center gap-3 bg-background/50 border border-border/50 p-4 rounded-none">
+              <span className="text-2xl"><UniversityIcon /></span>
+              <span className="font-medium">New Institutes Built (AIIMS, IITs, IIMs, etc.)</span>
             </div>
           </div>
         </div>

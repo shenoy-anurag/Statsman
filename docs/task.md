@@ -64,11 +64,12 @@
   - [x] Integrate "Renewables %" dynamic calculations in tooltips
   - [x] Map political eras for India (1948–2026) to energy production trends
   - [x] Update India dashboard grid with single-column clickable cards
-- [ ] Phase 13: Future Enhancements
-  - [ ] Auto-generated analysis of Political Eras - deltas, averages, percent change per year, explanations, key events / crises etc.
+- [ ] Phase 13: Analysis & Analytics
   - [x] Add Umami analytics.
+  - [ ] Auto-generated analysis of Political Eras - deltas, averages, percent change per year, explanations, key events / crises etc.
   - [ ] Page for why I don't like to use Indices and surveys like Hunger Index, Happiness Index etc.
   - [ ] Pages on learning about the indicators, their history, how they are calculated, their limitations etc.
+- [ ] Phase 14: Future Enhancements
   - [ ] "Expand All / Collapse All" toggle for category sections on main dashboard
   - [ ] Search/filter across indicators within the main category sections
   - [ ] Additional country-specific dashboards (USA, China, etc.)
