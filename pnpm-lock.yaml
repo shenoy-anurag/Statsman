@@ -21,8 +21,8 @@ importers:
         specifier: ^12.38.0
         version: 12.38.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       india-geo-charts:
-        specifier: ^0.1.2
-        version: 0.1.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: ^0.1.3
+        version: 0.1.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       kbar:
         specifier: 0.1.0-beta.48
         version: 0.1.0-beta.48(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -1966,8 +1966,8 @@ packages:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
 
-  india-geo-charts@0.1.2:
-    resolution: {integrity: sha512-jVXHBC6PiC+PmKV/mq40FMOW6MqLuE4KkpDl3TwpLF/BP84F/S7gwAmOqvj3DbdDKw2JriqqIVx8pu/KIF/OrQ==}
+  india-geo-charts@0.1.3:
+    resolution: {integrity: sha512-siZJrHvOqCq8UhaUShB7rdglKW95C6KQqK7buioLP74Yrheu4vMVE1xBHGkhQ6antYY4TtJvWYrtBHpjyR0hpw==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -5245,7 +5245,7 @@ snapshots:
 
   imurmurhash@0.1.4: {}
 
-  india-geo-charts@0.1.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  india-geo-charts@0.1.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       d3-geo: 3.1.1
       topojson-client: 3.1.0
