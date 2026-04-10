@@ -140,7 +140,6 @@ export function IndicatorChart({ data, countryCodes, indicatorName, overlayEras,
 
               let formattedValue = "No Data";
               if (value !== null && value !== undefined) {
-                const fractionDigits = isSmallScreen ? 0 : 1;
                 const absValue = Math.abs(value);
                 const sign = value < 0 ? '-' : '';
                 formattedValue = value.toLocaleString(undefined, { maximumFractionDigits: 2 });

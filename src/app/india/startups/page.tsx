@@ -5,12 +5,13 @@ import Link from "next/link";
 import { PaperTexture } from "@/components/PaperTexture";
 import startupDataRaw from "@/data/india-startup-yearwise-count.json";
 import { getPoliticalEra } from "@/lib/political-data";
+import { StartupData } from "@/lib/types";
 
 export default function StartupPage() {
   const countryCodes = ["IND"];
 
   // Format Startup Data
-  const formattedStartupData: MergedDataPoint[] = (startupDataRaw as any[]).map(item => {
+  const formattedStartupData: MergedDataPoint[] = (startupDataRaw as StartupData[]).map(item => {
     const year = item.Year;
     const era = getPoliticalEra("IND", year);
     const point: MergedDataPoint = {

@@ -6,11 +6,12 @@ import { PowerGenerationChart } from "@/components/visualizations/PowerGeneratio
 
 import { getMergedChartData, MergedDataPoint } from "@/lib/data-merger";
 import { INDICATORS_MAP } from "@/constants/indicators";
-import { ChartSplineIcon, ArrowUpRight, BeakerIcon, UniversityIcon } from "lucide-react";
+import { ChartSplineIcon, ArrowUpRight, BeakerIcon, UniversityIcon, MapPin } from "lucide-react";
 import SvgIcon from "@/components/icons/svg-icon";
 import { PaperTexture } from "@/components/PaperTexture";
-import startupDataRaw from "@/data/india-startup-yearwise-count.json";
 import { getPoliticalEra } from "@/lib/political-data";
+import { StartupData } from "@/lib/types";
+import startupDataRaw from "@/data/india-startup-yearwise-count.json";
 
 export default async function IndiaDashboard() {
   const countryCodes = ["IND"];
@@ -39,7 +40,7 @@ export default async function IndiaDashboard() {
   );
 
   // Process Startup Data
-  const formattedStartupData: MergedDataPoint[] = (startupDataRaw as any[]).map(item => {
+  const formattedStartupData: MergedDataPoint[] = (startupDataRaw as StartupData[]).map(item => {
     const year = item.Year;
     const era = getPoliticalEra("IND", year);
     const point: MergedDataPoint = {
@@ -60,7 +61,7 @@ export default async function IndiaDashboard() {
           India Dashboard
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed">
-          A dedicated view for India's socio-economic metrics. I am curating granular data including industrial growth, railway electrification, and renewable energy capacity.
+          A dedicated view for India&apos;s socio-economic metrics. I am curating granular data including industrial growth, railway electrification, and renewable energy capacity.
         </p>
       </div>
 
@@ -146,6 +147,29 @@ export default async function IndiaDashboard() {
             </div>
             <div className="w-full flex-grow relative min-h-[450px]">
               <PowerGenerationChart />
+            </div>
+          </div>
+        </Link>
+
+        {/* New Geographic Mapping Section */}
+        <Link
+          href="/india/map"
+          className="flex flex-col h-full group/link"
+        >
+          <div
+            className="bg-card/40 backdrop-blur-md rounded-none p-6 min-h-[400px] h-full animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both hover:border-primary/50 hover:bg-card/60 transition-all flex flex-col group/chart overflow-hidden relative border border-transparent"
+            style={{ animationDelay: "400ms" }}
+          >
+            <PaperTexture />
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-xl font-semibold group-hover/link:text-primary transition-colors tracking-tight">Regional Distribution (GeoJSON Map)</h2>
+              <ArrowUpRight className="h-5 w-5 opacity-0 group-hover/chart:opacity-100 group-hover/chart:translate-x-1 group-hover/chart:-translate-y-1 transition-all text-primary" />
+            </div>
+            <div className="w-full flex-grow relative min-h-[450px] flex items-center justify-center bg-muted/20 border border-dashed border-border/50">
+              <div className="flex flex-col items-center gap-2 text-muted-foreground/50">
+                <MapPin className="h-12 w-12" />
+                <span className="font-serif italic">GeoJSON Visualization</span>
+              </div>
             </div>
           </div>
         </Link>
